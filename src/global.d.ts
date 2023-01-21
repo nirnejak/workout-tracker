@@ -1,4 +1,5 @@
-type WorkoutType = {
-  name: string;
-  count: number;
-};
+interface WorkoutType {
+  name: string
+  count: number
+  set: number
+}

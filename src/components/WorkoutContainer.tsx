@@ -13,7 +13,10 @@ const WorkoutContainer: React.FC<Props> = ({
 }) => {
   return (
     <div className="text-sm border-[0.7px] border-slate-400 rounded-lg p-3 mb-3">
-      <p className="text-slate-800 text-left mb-3">{workout.name}</p>
+      <div className="flex justify-between mb-5">
+        <p className="text-slate-800">{workout.name}</p>
+        <p className="text-slate-400">Set of {workout.set}</p>
+      </div>
       <div className="flex justify-between">
         <button
           className="bg-slate-900 text-white rounded-md py-1 px-3"

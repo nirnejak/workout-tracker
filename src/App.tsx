@@ -3,14 +3,14 @@ import * as React from "react"
 import WorkoutContainer from "./components/WorkoutContainer"
 
 const initialWorkouts = [
-  { name: "Squats", count: 0 },
-  { name: "Pushups", count: 0 },
-  { name: "Pull Up", count: 0 },
-  { name: "Deadlifts", count: 0 },
-  { name: "Bicep Curls", count: 0 },
-  { name: "Dumbell Up", count: 0 },
-  { name: "Dumbell Side", count: 0 },
-  { name: "Dumbell Lean Up", count: 0 },
+  { name: "Squats", set: 10, count: 0 },
+  { name: "Pushups", set: 10, count: 0 },
+  { name: "Pullups", set: 10, count: 0 },
+  { name: "Deadlifts", set: 1, count: 0 },
+  { name: "Bicep Curls", set: 15, count: 0 },
+  { name: "Dumbell Up", set: 20, count: 0 },
+  { name: "Dumbell Side", set: 10, count: 0 },
+  { name: "Dumbell Lean Up", set: 10, count: 0 },
 ]
 
 const App: React.FC = () => {
