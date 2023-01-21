@@ -19,10 +19,19 @@ const WorkoutContainer: React.FC<Props> = ({
       </div>
       <div className="flex justify-between">
         <button
-          className="bg-slate-900 text-white rounded-md py-1 px-3"
+          className="bg-slate-900 text-white rounded-md p-1"
           onClick={reduceCount}
         >
-          -
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+          </svg>
         </button>
         <input
           className="text-center border-[0.5px] border-slate-400 rounded-md"
@@ -31,10 +40,23 @@ const WorkoutContainer: React.FC<Props> = ({
           value={workout.count}
         />
         <button
-          className="bg-slate-900 text-white rounded-md py-1 px-3"
+          className="bg-slate-900 text-white rounded-md p-1"
           onClick={increaseCount}
         >
-          +
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 6v12m6-6H6"
+            />
+          </svg>
         </button>
       </div>
     </div>
