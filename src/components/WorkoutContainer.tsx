@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from "react"
 
-type Props = {
-  workout: WorkoutType;
-  reduceCount: () => void;
-  increaseCount: () => void;
-};
+interface Props {
+  workout: WorkoutType
+  reduceCount: () => void
+  increaseCount: () => void
+}
 
 const WorkoutContainer: React.FC<Props> = ({
   workout,
@@ -35,7 +35,7 @@ const WorkoutContainer: React.FC<Props> = ({
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WorkoutContainer;
+export default WorkoutContainer

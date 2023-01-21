@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from "react"
 
-import WorkoutContainer from "./components/WorkoutContainer";
+import WorkoutContainer from "./components/WorkoutContainer"
 
 const initialWorkouts = [
   { name: "Pushups", count: 0 },
@@ -10,52 +10,51 @@ const initialWorkouts = [
   { name: "Dumbell Up", count: 0 },
   { name: "Dumbell Side", count: 0 },
   { name: "Dumbell Lean Up", count: 0 },
-];
+]
 
 const App: React.FC = () => {
-  const [workouts, setWorkouts] =
-    React.useState<WorkoutType[]>(initialWorkouts);
+  const [workouts, setWorkouts] = React.useState<WorkoutType[]>(initialWorkouts)
 
   React.useEffect(() => {
-    const localWorkouts = localStorage.getItem("workouts");
-    if (localWorkouts?.length) {
-      setWorkouts(JSON.parse(localWorkouts));
+    const localWorkouts = localStorage.getItem("workouts")
+    if (localWorkouts?.length === undefined || localWorkouts?.length < 0) {
+      setWorkouts(JSON.parse(localWorkouts as string))
     }
-  }, []);
+  }, [])
 
   React.useEffect(() => {
-    localStorage.setItem("workouts", JSON.stringify(workouts));
-  }, [workouts]);
+    localStorage.setItem("workouts", JSON.stringify(workouts))
+  }, [workouts])
 
-  const reduceCount = (index: number) => {
+  const reduceCount = (index: number): void => {
     setWorkouts((workouts) => {
       return workouts.map((workout, i) => {
         if (i === index) {
           return {
             ...workout,
             count: workout.count === 0 ? 0 : workout.count - 1,
-          };
+          }
         } else {
-          return workout;
+          return workout
         }
-      });
-    });
-  };
+      })
+    })
+  }
 
-  const increaseCount = (index: number) => {
+  const increaseCount = (index: number): void => {
     setWorkouts((workouts) => {
       return workouts.map((workout, i) => {
         if (i === index) {
           return {
             ...workout,
             count: workout.count + 1,
-          };
+          }
         } else {
-          return workout;
+          return workout
         }
-      });
-    });
-  };
+      })
+    })
+  }
 
   return (
     <div
@@ -67,12 +66,16 @@ const App: React.FC = () => {
         <WorkoutContainer
           key={index}
           workout={workout}
-          reduceCount={() => reduceCount(index)}
-          increaseCount={() => increaseCount(index)}
+          reduceCount={() => {
+            reduceCount(index)
+          }}
+          increaseCount={() => {
+            increaseCount(index)
+          }}
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
