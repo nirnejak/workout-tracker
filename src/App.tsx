@@ -3,8 +3,9 @@ import * as React from "react"
 import WorkoutContainer from "./components/WorkoutContainer"
 
 const initialWorkouts = [
-  { name: "Pushups", count: 0 },
   { name: "Squats", count: 0 },
+  { name: "Pushups", count: 0 },
+  { name: "Pull Up", count: 0 },
   { name: "Deadlifts", count: 0 },
   { name: "Bicep Curls", count: 0 },
   { name: "Dumbell Up", count: 0 },
