@@ -1,10 +1,5 @@
 import * as React from "react";
 
-type WorkoutType = {
-  name: string;
-  count: number;
-};
-
 type Props = {
   workout: WorkoutType;
   reduceCount: () => void;
