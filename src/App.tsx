@@ -11,6 +11,9 @@ const initialWorkouts = [
   { name: "Dumbell Up", set: 20, count: 0 },
   { name: "Dumbell Side", set: 10, count: 0 },
   { name: "Dumbell Lean Up", set: 10, count: 0 },
+  { name: "Fist Exercise", set: 20, count: 0 },
+  { name: "Wrist Exercise Side", set: 10, count: 0 },
+  { name: "Wrist Exercise Up", set: 10, count: 0 },
 ]
 
 const App: React.FC = () => {
