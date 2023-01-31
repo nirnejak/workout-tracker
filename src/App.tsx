@@ -7,6 +7,7 @@ const initialWorkouts = [
   { name: "Crunches", set: 10, count: 0 },
   { name: "Pushups", set: 10, count: 0 },
   { name: "Pullups", set: 10, count: 0 },
+  { name: "Plank", set: 1, count: 0 },
   { name: "Deadlifts", set: 1, count: 0 },
   { name: "Bicep Curls", set: 15, count: 0 },
   { name: "Dumbell Up", set: 20, count: 0 },
