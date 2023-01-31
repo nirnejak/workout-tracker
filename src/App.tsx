@@ -4,6 +4,7 @@ import WorkoutContainer from "./components/WorkoutContainer"
 
 const initialWorkouts = [
   { name: "Squats", set: 10, count: 0 },
+  { name: "Crunches", set: 10, count: 0 },
   { name: "Pushups", set: 10, count: 0 },
   { name: "Pullups", set: 10, count: 0 },
   { name: "Deadlifts", set: 1, count: 0 },
