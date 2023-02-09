@@ -21,7 +21,6 @@ const initialWorkouts = [
 
 interface HookReturnType {
   workouts: WorkoutType[]
-  updateWorkouts: (updatedWorkouts: WorkoutType[]) => void
   reduceCount: (index: number) => void
   increaseCount: (index: number) => void
 }
