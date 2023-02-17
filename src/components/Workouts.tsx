@@ -5,6 +5,7 @@ import useWorkout from "../hooks/useWorkout"
 
 const Workouts: React.FC = () => {
   const { workouts, reduceCount, increaseCount } = useWorkout()
+
   return (
     <div
       className="w-full md:w-[300px] mx-auto p-4"
