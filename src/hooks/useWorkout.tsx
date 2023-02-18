@@ -1,22 +1,23 @@
 import * as React from "react"
 
 const initialWorkouts = [
-  { name: "Squats", set: 10, count: 0 },
   { name: "Pushups", set: 10, count: 0 },
-  { name: "Plank", set: 1, count: 0 },
-  { name: "Deadlifts", set: 1, count: 0 },
+  { name: "Crunches", set: 10, count: 0 },
+  { name: "Squats", set: 10, count: 0 },
+
   { name: "Bicep Curls", set: 15, count: 0 },
   { name: "Bar Pull", set: 10, count: 0 },
   { name: "Dumbell Up", set: 20, count: 0 },
   { name: "Dumbell Side", set: 10, count: 0 },
-  { name: "Dumbell Lean Up", set: 10, count: 0 },
 
   { name: "Fist Exercise", set: 20, count: 0 },
   { name: "Wrist Exercise Side", set: 10, count: 0 },
   { name: "Wrist Exercise Up", set: 10, count: 0 },
 
-  { name: "Crunches", set: 10, count: 0 },
+  { name: "Plank", set: 1, count: 0 },
+  { name: "Deadlifts", set: 1, count: 0 },
   { name: "Pullups", set: 10, count: 0 },
+  { name: "Dumbell Lean Up", set: 10, count: 0 },
 ]
 
 interface HookReturnType {
