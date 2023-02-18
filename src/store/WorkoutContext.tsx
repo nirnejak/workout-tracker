@@ -45,14 +45,10 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
 
   React.useEffect(() => {
     const localWorkouts = localStorage.getItem("workouts")
-    if (localWorkouts?.length === undefined || localWorkouts?.length < 0) {
-      setWorkouts(JSON.parse(localWorkouts as string))
+    if (localWorkouts !== null) {
+      setWorkouts(JSON.parse(localWorkouts))
     }
   }, [])
-
-  React.useEffect(() => {
-    localStorage.setItem("workouts", JSON.stringify(workouts))
-  }, [workouts])
 
   const reduceCount = (index: number): void => {
     setWorkouts((workouts) => {
