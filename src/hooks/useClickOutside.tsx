@@ -1,7 +1,8 @@
 import * as React from "react"
 
-const useClickOutside = (ref: HTMLElement, callback: () => void): void => {
+const useClickOutside = (ref: any, callback: () => void): void => {
   const handleClick = (e: PointerEvent | MouseEvent | TouchEvent): void => {
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (ref.current && !ref.current.contains(e.target)) {
       callback()
     }
