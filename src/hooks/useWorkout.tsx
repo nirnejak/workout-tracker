@@ -22,6 +22,7 @@ const initialWorkouts = [
 
 interface HookReturnType {
   workouts: WorkoutType[]
+  resetWorkouts: () => void
   reduceCount: (index: number) => void
   increaseCount: (index: number) => void
 }
@@ -35,6 +36,11 @@ const useWorkout = (): HookReturnType => {
       setWorkouts(JSON.parse(localWorkouts))
     }
   }, [])
+
+  const resetWorkouts = (): void => {
+    setWorkouts(initialWorkouts)
+    localStorage.setItem("workouts", JSON.stringify(initialWorkouts))
+  }
 
   const reduceCount = (index: number): void => {
     setWorkouts((workouts) => {
@@ -70,7 +76,7 @@ const useWorkout = (): HookReturnType => {
     })
   }
 
-  return { workouts, reduceCount, increaseCount }
+  return { workouts, resetWorkouts, reduceCount, increaseCount }
 }
 
 export default useWorkout
