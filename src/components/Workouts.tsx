@@ -3,15 +3,21 @@ import * as React from "react"
 import { MoreVerticalFill } from "akar-icons"
 
 import WorkoutContainer from "./WorkoutContainer"
+import useClickOutside from "../hooks/useClickOutside"
 import useWorkout from "../hooks/useWorkout"
 import { ThemeContext } from "../store/ThemeContext"
 
 const Workouts: React.FC = () => {
   const themeContext = React.useContext(ThemeContext)
 
+  const menuRef = React.useRef(null)
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+
   const { workouts, resetWorkouts, reduceCount, increaseCount } = useWorkout()
 
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  useClickOutside(menuRef, () => {
+    setIsMenuOpen(false)
+  })
 
   return (
     <div
@@ -30,7 +36,10 @@ const Workouts: React.FC = () => {
             <MoreVerticalFill size={18} />
           </button>
           {isMenuOpen && (
-            <div className="absolute top-3 right-3 bg-white border-slate-100 border-[1px] shadow-lg rounded-lg text-left text-sm">
+            <div
+              ref={menuRef}
+              className="absolute top-3 right-3 bg-white border-slate-100 border-[1px] shadow-lg rounded-lg text-left text-sm"
+            >
               <button
                 onClick={() => {
                   resetWorkouts()
