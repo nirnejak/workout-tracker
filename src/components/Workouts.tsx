@@ -7,7 +7,7 @@ import useWorkout from "../hooks/useWorkout"
 import { ThemeContext } from "../store/ThemeContext"
 
 const Workouts: React.FC = () => {
-  const { theme, changeTheme } = React.useContext(ThemeContext)
+  const themeContext = React.useContext(ThemeContext)
 
   const { workouts, resetWorkouts, reduceCount, increaseCount } = useWorkout()
 
@@ -44,19 +44,25 @@ const Workouts: React.FC = () => {
                 <div className="flex gap-1 py-1 rounded-b-md">
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => changeTheme("Dune")}
+                    onClick={() => {
+                      themeContext?.changeTheme("Dune")
+                    }}
                   >
                     Dune
                   </button>
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => changeTheme("Oasis")}
+                    onClick={() => {
+                      themeContext?.changeTheme("Oasis")
+                    }}
                   >
                     Oasis
                   </button>
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => changeTheme("Rain Forest")}
+                    onClick={() => {
+                      themeContext?.changeTheme("Rain Forest")
+                    }}
                   >
                     Rain Forest
                   </button>
