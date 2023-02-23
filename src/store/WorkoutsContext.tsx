@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import useLocalStorage from "../hooks/useLocalStorage"
-
 const initialWorkouts = [
   { name: "Pushups", set: 10, count: 0 },
   { name: "Crunches", set: 10, count: 0 },
@@ -43,13 +41,13 @@ interface Props {
   children: React.ReactNode
 }
 
-const WorkoutsProvider: React.FC<Props> = ({ children }) => {
-  const { setLocalStorage, getLocalStorage } = useLocalStorage("workouts")
+const LOCAL_STORAGE_FIELD = "workouts"
 
+const WorkoutsProvider: React.FC<Props> = ({ children }) => {
   const [workouts, setWorkouts] = React.useState<WorkoutType[]>(initialWorkouts)
 
   React.useEffect(() => {
-    const localWorkouts = getLocalStorage()
+    const localWorkouts = localStorage.getItem(LOCAL_STORAGE_FIELD)
     if (localWorkouts !== null) {
       setWorkouts(JSON.parse(localWorkouts))
     }
@@ -57,7 +55,7 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
 
   const resetWorkouts = (): void => {
     setWorkouts(initialWorkouts)
-    setLocalStorage(JSON.stringify(initialWorkouts))
+    localStorage.setItem(LOCAL_STORAGE_FIELD, JSON.stringify(initialWorkouts))
   }
 
   const reduceCount = (index: number): void => {
@@ -72,7 +70,7 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
           return workout
         }
       })
-      setLocalStorage(JSON.stringify(updatedWorkouts))
+      localStorage.setItem(LOCAL_STORAGE_FIELD, JSON.stringify(updatedWorkouts))
       return updatedWorkouts
     })
   }
@@ -89,7 +87,7 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
           return workout
         }
       })
-      setLocalStorage(JSON.stringify(updatedWorkouts))
+      localStorage.setItem(LOCAL_STORAGE_FIELD, JSON.stringify(updatedWorkouts))
       return updatedWorkouts
     })
   }
