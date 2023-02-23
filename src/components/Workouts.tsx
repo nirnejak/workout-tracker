@@ -4,14 +4,13 @@ import { MoreVerticalFill } from "akar-icons"
 
 import WorkoutContainer from "./WorkoutContainer"
 import useClickOutside from "../hooks/useClickOutside"
-import useWorkout from "../hooks/useWorkout"
 import { ThemeContext } from "../store/ThemeContext"
+import { WorkoutsContext } from "../store/WorkoutsContext"
 
 const Workouts: React.FC = () => {
   const menuRef = React.useRef(null)
-
-  const { theme, changeTheme } = React.useContext(ThemeContext)
-  const { workouts, reduceCount, increaseCount, resetWorkouts } = useWorkout()
+  const themeCtx = React.useContext(ThemeContext)
+  const workoutsCtx = React.useContext(WorkoutsContext)
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
@@ -42,7 +41,7 @@ const Workouts: React.FC = () => {
             >
               <button
                 onClick={() => {
-                  resetWorkouts()
+                  workoutsCtx?.resetWorkouts()
                 }}
                 className="w-full hover:bg-slate-100 px-3 py-2 rounded-t-md text-left"
               >
@@ -53,19 +52,19 @@ const Workouts: React.FC = () => {
                 <div className="flex gap-1 py-1 rounded-b-md">
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => changeTheme("Dune")}
+                    onClick={() => themeCtx?.changeTheme("Dune")}
                   >
                     Dune
                   </button>
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => changeTheme("Oasis")}
+                    onClick={() => themeCtx?.changeTheme("Oasis")}
                   >
                     Oasis
                   </button>
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => changeTheme("Rain Forest")}
+                    onClick={() => themeCtx?.changeTheme("Rain Forest")}
                   >
                     Rain Forest
                   </button>
@@ -77,17 +76,17 @@ const Workouts: React.FC = () => {
       </div>
       <p className="text-sm mb-5">
         <span>Current Theme: </span>
-        <span className="text-gray-500">{theme}</span>
+        <span className="text-gray-500">{themeCtx?.theme}</span>
       </p>
-      {workouts.map((workout, index) => (
+      {workoutsCtx?.workouts.map((workout, index) => (
         <WorkoutContainer
           key={index}
           workout={workout}
           reduceCount={() => {
-            reduceCount(index)
+            workoutsCtx?.reduceCount(index)
           }}
           increaseCount={() => {
-            increaseCount(index)
+            workoutsCtx?.increaseCount(index)
           }}
         />
       ))}
