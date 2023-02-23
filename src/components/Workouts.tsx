@@ -8,12 +8,12 @@ import useWorkout from "../hooks/useWorkout"
 import { ThemeContext } from "../store/ThemeContext"
 
 const Workouts: React.FC = () => {
-  const themeContext = React.useContext(ThemeContext)
-
   const menuRef = React.useRef(null)
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
-  const { workouts, resetWorkouts, reduceCount, increaseCount } = useWorkout()
+  const { theme, changeTheme } = React.useContext(ThemeContext)
+  const { workouts, reduceCount, increaseCount, resetWorkouts } = useWorkout()
+
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   useClickOutside(menuRef, () => {
     setIsMenuOpen(false)
@@ -24,7 +24,7 @@ const Workouts: React.FC = () => {
       className="w-full md:w-[300px] mx-auto p-4"
       style={{ fontFamily: "system-ui, sans-serif" }}
     >
-      <div className="flex justify-between relative mb-5">
+      <div className="flex justify-between relative mb-2">
         <h1 className="text-xl font-medium text-slate-800">Workouts</h1>
         <div className="flex align-middle">
           <button
@@ -53,25 +53,19 @@ const Workouts: React.FC = () => {
                 <div className="flex gap-1 py-1 rounded-b-md">
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => {
-                      themeContext?.changeTheme("Dune")
-                    }}
+                    onClick={() => changeTheme("Dune")}
                   >
                     Dune
                   </button>
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => {
-                      themeContext?.changeTheme("Oasis")
-                    }}
+                    onClick={() => changeTheme("Oasis")}
                   >
                     Oasis
                   </button>
                   <button
                     className="px-2 py-1 rounded-md hover:bg-slate-100"
-                    onClick={() => {
-                      themeContext?.changeTheme("Rain Forest")
-                    }}
+                    onClick={() => changeTheme("Rain Forest")}
                   >
                     Rain Forest
                   </button>
@@ -81,6 +75,10 @@ const Workouts: React.FC = () => {
           )}
         </div>
       </div>
+      <p className="text-sm mb-5">
+        <span>Current Theme: </span>
+        <span className="text-gray-500">{theme}</span>
+      </p>
       {workouts.map((workout, index) => (
         <WorkoutContainer
           key={index}

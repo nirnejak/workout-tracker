@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import useLocalStorage from "../hooks/useLocalStorage"
+
 const initialWorkouts = [
   { name: "Pushups", set: 10, count: 0 },
   { name: "Crunches", set: 10, count: 0 },
@@ -26,8 +28,9 @@ interface WORKOUTS {
   count: number
 }
 
-interface WORKOUTS_CONTEXT {
+export interface WORKOUTS_CONTEXT {
   workouts: WORKOUTS[]
+  resetWorkouts: () => void
   reduceCount: (index: number) => void
   increaseCount: (index: number) => void
 }
@@ -41,18 +44,25 @@ interface Props {
 }
 
 const WorkoutsProvider: React.FC<Props> = ({ children }) => {
+  const { setLocalStorage, getLocalStorage } = useLocalStorage("workouts")
+
   const [workouts, setWorkouts] = React.useState<WorkoutType[]>(initialWorkouts)
 
   React.useEffect(() => {
-    const localWorkouts = localStorage.getItem("workouts")
+    const localWorkouts = getLocalStorage()
     if (localWorkouts !== null) {
       setWorkouts(JSON.parse(localWorkouts))
     }
   }, [])
 
+  const resetWorkouts = (): void => {
+    setWorkouts(initialWorkouts)
+    setLocalStorage(JSON.stringify(initialWorkouts))
+  }
+
   const reduceCount = (index: number): void => {
     setWorkouts((workouts) => {
-      return workouts.map((workout, i) => {
+      const updatedWorkouts = workouts.map((workout, i) => {
         if (i === index) {
           return {
             ...workout,
@@ -62,12 +72,14 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
           return workout
         }
       })
+      setLocalStorage(JSON.stringify(updatedWorkouts))
+      return updatedWorkouts
     })
   }
 
   const increaseCount = (index: number): void => {
     setWorkouts((workouts) => {
-      return workouts.map((workout, i) => {
+      const updatedWorkouts = workouts.map((workout, i) => {
         if (i === index) {
           return {
             ...workout,
@@ -77,11 +89,15 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
           return workout
         }
       })
+      setLocalStorage(JSON.stringify(updatedWorkouts))
+      return updatedWorkouts
     })
   }
 
   return (
-    <WorkoutsContext.Provider value={{ workouts, reduceCount, increaseCount }}>
+    <WorkoutsContext.Provider
+      value={{ workouts, resetWorkouts, reduceCount, increaseCount }}
+    >
       {children}
     </WorkoutsContext.Provider>
   )
