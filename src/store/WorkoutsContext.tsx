@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import { toast } from "sonner"
+
 const initialWorkouts = [
   { name: "Pushups", set: 10, count: 0 },
   { name: "Crunches", set: 10, count: 0 },
@@ -56,6 +58,7 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
   const resetWorkouts = (): void => {
     setWorkouts(initialWorkouts)
     localStorage.setItem(LOCAL_STORAGE_FIELD, JSON.stringify(initialWorkouts))
+    toast("Workouts reset")
   }
 
   const reduceCount = (index: number): void => {
