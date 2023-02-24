@@ -6,7 +6,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": ["./tsconfig.json"]
+    "project": ["./tsconfig.json", "./tsconfig.node.json"]
   },
   "env": {
     "browser": true,
@@ -19,9 +19,16 @@
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["@typescript-eslint", "react", "react-hooks", "jsx-a11y"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "tailwindcss"
+  ],
   "rules": {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "error",
