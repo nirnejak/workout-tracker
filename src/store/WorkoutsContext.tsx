@@ -1,5 +1,6 @@
 import * as React from "react"
 
+import { ArrowCycle } from "akar-icons"
 import { toast } from "sonner"
 
 const initialWorkouts = [
@@ -58,7 +59,9 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
   const resetWorkouts = (): void => {
     setWorkouts(initialWorkouts)
     localStorage.setItem(LOCAL_STORAGE_FIELD, JSON.stringify(initialWorkouts))
-    toast("Workouts reset")
+    toast("Workouts reset", {
+      icon: <ArrowCycle size={15} />,
+    })
   }
 
   const reduceCount = (index: number): void => {
