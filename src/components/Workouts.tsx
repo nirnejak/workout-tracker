@@ -20,50 +20,50 @@ const Workouts: React.FC = () => {
 
   return (
     <div
-      className="w-full md:w-[300px] mx-auto p-4"
+      className="mx-auto w-full p-4 md:w-[300px]"
       style={{ fontFamily: "system-ui, sans-serif" }}
     >
-      <div className="flex justify-between relative mb-2">
+      <div className="relative mb-2 flex justify-between">
         <h1 className="text-xl font-medium text-slate-800">Workouts</h1>
         <div className="flex align-middle">
           <button
             onClick={() => {
               setIsMenuOpen(!isMenuOpen)
             }}
-            className="py-1 px-1.5 hover:bg-slate-50 rounded-md text-slate-900"
+            className="rounded-md py-1 px-1.5 text-slate-900 hover:bg-slate-50"
           >
             <MoreVerticalFill size={18} />
           </button>
           {isMenuOpen && (
             <div
               ref={menuRef}
-              className="absolute top-3 right-3 bg-white border-slate-100 border-[1px] shadow-lg rounded-lg text-left text-sm"
+              className="absolute top-3 right-3 rounded-lg border-[1px] border-slate-100 bg-white text-left text-sm shadow-lg"
             >
               <button
                 onClick={() => {
                   workoutsCtx?.resetWorkouts()
                 }}
-                className="w-full hover:bg-slate-100 px-3 py-2 rounded-t-md text-left"
+                className="w-full rounded-t-md px-3 py-2 text-left hover:bg-slate-100"
               >
                 Reset Workouts
               </button>
               <hr className="border-slate-100" />
               <div className="w-full px-3 py-1">
-                <div className="flex gap-1 py-1 rounded-b-md">
+                <div className="flex gap-1 rounded-b-md py-1">
                   <button
-                    className="px-2 py-1 rounded-md hover:bg-slate-100"
+                    className="rounded-md px-2 py-1 hover:bg-slate-100"
                     onClick={() => themeCtx?.changeTheme("Dune")}
                   >
                     Dune
                   </button>
                   <button
-                    className="px-2 py-1 rounded-md hover:bg-slate-100"
+                    className="rounded-md px-2 py-1 hover:bg-slate-100"
                     onClick={() => themeCtx?.changeTheme("Oasis")}
                   >
                     Oasis
                   </button>
                   <button
-                    className="px-2 py-1 rounded-md hover:bg-slate-100"
+                    className="rounded-md px-2 py-1 hover:bg-slate-100"
                     onClick={() => themeCtx?.changeTheme("Rain Forest")}
                   >
                     Rain Forest
@@ -74,7 +74,7 @@ const Workouts: React.FC = () => {
           )}
         </div>
       </div>
-      <p className="text-sm mb-5">
+      <p className="mb-5 text-sm">
         <span>Current Theme: </span>
         <span className="text-gray-500">{themeCtx?.theme}</span>
       </p>
