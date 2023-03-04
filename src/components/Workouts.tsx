@@ -23,7 +23,7 @@ const Workouts: React.FC = () => {
       className="mx-auto w-full p-4 md:w-[300px]"
       style={{ fontFamily: "system-ui, sans-serif" }}
     >
-      <div className="relative mb-2 flex justify-between">
+      <div className="relative mb-3 flex justify-between">
         <h1 className="text-xl font-medium text-slate-800">Workouts</h1>
         <div className="flex align-middle">
           <button
@@ -74,10 +74,6 @@ const Workouts: React.FC = () => {
           )}
         </div>
       </div>
-      <p className="mb-5 text-sm">
-        <span>Current Theme: </span>
-        <span className="text-gray-500">{themeCtx?.theme}</span>
-      </p>
       {workoutsCtx?.workouts.map((workout, index) => (
         <WorkoutContainer
           key={index}

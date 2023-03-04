@@ -1,20 +1,21 @@
 import * as React from "react"
 
-import { Toaster } from "sonner"
-
 import Workouts from "./components/Workouts"
-import ThemeProvider from "./store/ThemeContext"
+import { ThemeContext } from "./store/ThemeContext"
 import WorkoutsProvider from "./store/WorkoutsContext"
 
 const App: React.FC = () => {
+  const themeCtx = React.useContext(ThemeContext)
+
   return (
     <>
-      <ThemeProvider>
-        <WorkoutsProvider>
-          <Workouts />
-        </WorkoutsProvider>
-      </ThemeProvider>
-      <Toaster closeButton />
+      <WorkoutsProvider>
+        <Workouts />
+      </WorkoutsProvider>
+      <p className="fixed left-5 bottom-0 mb-5 text-sm">
+        <span>Current Theme: </span>
+        <span className="text-gray-500">{themeCtx?.theme}</span>
+      </p>
     </>
   )
 }
