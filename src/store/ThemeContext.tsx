@@ -20,14 +20,12 @@ const themes = {
   },
 }
 
-interface THEME_CONTEXT {
+export interface THEME_CONTEXT {
   theme: SUPPORTED_THEME
   changeTheme: (newTheme: SUPPORTED_THEME) => void
 }
 
-export const ThemeContext = React.createContext<THEME_CONTEXT | undefined>(
-  undefined
-)
+export const ThemeContext = React.createContext<THEME_CONTEXT | null>(null)
 
 interface Props {
   children: React.ReactNode

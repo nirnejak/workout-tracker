@@ -4,13 +4,17 @@ import { MoreVerticalFill } from "akar-icons"
 
 import WorkoutContainer from "./WorkoutContainer"
 import useClickOutside from "../hooks/useClickOutside"
-import { ThemeContext } from "../store/ThemeContext"
-import { WorkoutsContext } from "../store/WorkoutsContext"
+import { ThemeContext, type THEME_CONTEXT } from "../store/ThemeContext"
+import {
+  WorkoutsContext,
+  type WORKOUTS_CONTEXT,
+} from "../store/WorkoutsContext"
 
 const Workouts: React.FC = () => {
   const menuRef = React.useRef(null)
-  const themeCtx = React.useContext(ThemeContext)
-  const workoutsCtx = React.useContext(WorkoutsContext)
+  const { changeTheme } = React.useContext(ThemeContext) as THEME_CONTEXT
+  const { workouts, reduceCount, increaseCount, resetWorkouts } =
+    React.useContext(WorkoutsContext) as WORKOUTS_CONTEXT
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
@@ -41,7 +45,7 @@ const Workouts: React.FC = () => {
             >
               <button
                 onClick={() => {
-                  workoutsCtx?.resetWorkouts()
+                  resetWorkouts()
                 }}
                 className="w-full rounded-t-md px-3 py-2 text-left hover:bg-slate-100"
               >
@@ -52,19 +56,25 @@ const Workouts: React.FC = () => {
                 <div className="flex gap-1 rounded-b-md py-1">
                   <button
                     className="rounded-md px-2 py-1 hover:bg-slate-100"
-                    onClick={() => themeCtx?.changeTheme("Dune")}
+                    onClick={() => {
+                      changeTheme("Dune")
+                    }}
                   >
                     Dune
                   </button>
                   <button
                     className="rounded-md px-2 py-1 hover:bg-slate-100"
-                    onClick={() => themeCtx?.changeTheme("Oasis")}
+                    onClick={() => {
+                      changeTheme("Oasis")
+                    }}
                   >
                     Oasis
                   </button>
                   <button
                     className="rounded-md px-2 py-1 hover:bg-slate-100"
-                    onClick={() => themeCtx?.changeTheme("Rain Forest")}
+                    onClick={() => {
+                      changeTheme("Rain Forest")
+                    }}
                   >
                     Rain Forest
                   </button>
@@ -74,15 +84,15 @@ const Workouts: React.FC = () => {
           )}
         </div>
       </div>
-      {workoutsCtx?.workouts.map((workout, index) => (
+      {workouts.map((workout, index) => (
         <WorkoutContainer
           key={index}
           workout={workout}
           reduceCount={() => {
-            workoutsCtx?.reduceCount(index)
+            reduceCount(index)
           }}
           increaseCount={() => {
-            workoutsCtx?.increaseCount(index)
+            increaseCount(index)
           }}
         />
       ))}

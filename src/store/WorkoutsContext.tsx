@@ -23,7 +23,7 @@ const initialWorkouts = [
   { name: "Dumbell Lean Up", set: 10, count: 0 },
 ]
 
-interface WORKOUTS {
+export interface WORKOUTS {
   name: string
   set: number
   count: number
@@ -36,9 +36,9 @@ export interface WORKOUTS_CONTEXT {
   increaseCount: (index: number) => void
 }
 
-export const WorkoutsContext = React.createContext<
-  WORKOUTS_CONTEXT | undefined
->(undefined)
+export const WorkoutsContext = React.createContext<WORKOUTS_CONTEXT | null>(
+  null
+)
 
 interface Props {
   children: React.ReactNode

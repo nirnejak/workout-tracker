@@ -1,11 +1,11 @@
 import * as React from "react"
 
 import Workouts from "./components/Workouts"
-import { ThemeContext } from "./store/ThemeContext"
+import { ThemeContext, type THEME_CONTEXT } from "./store/ThemeContext"
 import WorkoutsProvider from "./store/WorkoutsContext"
 
 const App: React.FC = () => {
-  const themeCtx = React.useContext(ThemeContext)
+  const { theme } = React.useContext(ThemeContext) as THEME_CONTEXT
 
   return (
     <>
@@ -14,7 +14,7 @@ const App: React.FC = () => {
       </WorkoutsProvider>
       <p className="fixed left-5 bottom-0 mb-5 text-sm">
         <span>Current Theme: </span>
-        <span className="text-gray-500">{themeCtx?.theme}</span>
+        <span className="text-gray-500">{theme}</span>
       </p>
     </>
   )
