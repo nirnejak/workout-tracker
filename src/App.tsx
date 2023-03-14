@@ -8,15 +8,15 @@ const App: React.FC = () => {
   const { theme } = React.useContext(ThemeContext) as THEME_CONTEXT
 
   return (
-    <>
+    <main className="bg-white dark:bg-zinc-900">
       <WorkoutsProvider>
         <Workouts />
       </WorkoutsProvider>
       <p className="xs:hidden fixed left-5 bottom-0 mb-5 text-sm">
-        <span>Current Theme: </span>
-        <span className="text-gray-500">{theme}</span>
+        <span className="dark:text-zinc-500">Current Theme: </span>
+        <span className="text-slate-500 dark:text-zinc-700">{theme}</span>
       </p>
-    </>
+    </main>
   )
 }
 

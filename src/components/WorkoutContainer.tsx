@@ -12,14 +12,16 @@ const WorkoutContainer: React.FC<Props> = ({
   increaseCount,
 }) => {
   return (
-    <div className="mb-3 rounded-lg border-[0.7px] border-slate-400 p-3 text-sm">
+    <div className="mb-3 rounded-lg border-[0.7px] border-slate-400 p-3 text-sm dark:border-zinc-500">
       <div className="mb-5 flex justify-between">
-        <p className="text-slate-800">{workout.name}</p>
-        <p className="text-slate-400">Set of {workout.set}</p>
+        <p className="text-slate-800 dark:text-zinc-400">{workout.name}</p>
+        <p className="text-slate-400 dark:text-zinc-700">
+          Set of {workout.set}
+        </p>
       </div>
       <div className="flex justify-between">
         <button
-          className="rounded-md bg-slate-900 p-1 text-white"
+          className="rounded-md bg-slate-900 p-1 text-white dark:bg-zinc-700 dark:text-zinc-900"
           onClick={reduceCount}
         >
           <svg
@@ -34,13 +36,13 @@ const WorkoutContainer: React.FC<Props> = ({
           </svg>
         </button>
         <input
-          className="rounded-md border-[0.5px] border-slate-400 text-center"
+          className="rounded-md border-[0.5px] border-slate-400 bg-transparent text-center  text-slate-900 dark:border-zinc-500 dark:text-zinc-500"
           type="text"
           readOnly
           value={workout.count}
         />
         <button
-          className="rounded-md bg-slate-900 p-1 text-white"
+          className="rounded-md bg-slate-900 p-1 text-white dark:bg-zinc-700 dark:text-zinc-900"
           onClick={increaseCount}
         >
           <svg
