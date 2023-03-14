@@ -28,7 +28,7 @@ const Workouts: React.FC = () => {
       style={{ fontFamily: "system-ui, sans-serif" }}
     >
       <div className="relative mb-3 flex justify-between">
-        <h1 className="text-xl font-medium text-slate-800 dark:text-slate-300">
+        <h1 className="text-xl font-medium text-slate-800 dark:text-zinc-300">
           Workouts
         </h1>
         <div className="flex align-middle">
