@@ -12,7 +12,7 @@ const App: React.FC = () => {
       <WorkoutsProvider>
         <Workouts />
       </WorkoutsProvider>
-      <p className="xs:hidden fixed left-5 bottom-0 mb-5 text-sm">
+      <p className="fixed left-5 bottom-0 mb-5 hidden text-sm md:block">
         <span className="dark:text-zinc-500">Current Theme: </span>
         <span className="text-slate-500 dark:text-zinc-700">{theme}</span>
       </p>
