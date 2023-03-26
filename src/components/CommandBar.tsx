@@ -31,15 +31,15 @@ const CommandBar: React.FC = () => {
   ) as WORKOUTS_CONTEXT
 
   React.useEffect(() => {
-    const down = (e: React.KeyboardEvent): void => {
-      if (e.key === "k" && e.metaKey) {
+    const eventHandler = (e: any | React.KeyboardEvent): void => {
+      if ((e as KeyboardEvent).key === "k" && (e as KeyboardEvent).metaKey) {
         setOpen((open) => !open)
       }
     }
 
-    document.addEventListener("keydown", down)
+    document.addEventListener("keydown", eventHandler)
     return () => {
-      document.removeEventListener("keydown", down)
+      document.removeEventListener("keydown", eventHandler)
     }
   }, [])
 
