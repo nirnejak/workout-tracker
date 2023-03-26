@@ -1,6 +1,7 @@
 import * as React from "react"
 
-import Menu from "./Menu"
+import { Command } from "akar-icons"
+
 import WorkoutContainer from "./WorkoutContainer"
 import {
   WorkoutsContext,
@@ -17,11 +18,16 @@ const Workouts: React.FC = () => {
       className="mx-auto w-full p-4 md:w-[300px]"
       style={{ fontFamily: "system-ui, sans-serif" }}
     >
-      <div className="relative mb-3 flex justify-between">
+      <div className="relative mb-3 flex items-center justify-between">
         <h1 className="text-xl font-medium text-slate-800 dark:text-zinc-300">
           Workouts
         </h1>
-        <Menu />
+        <Command
+          className="text-slate-800 dark:text-zinc-300"
+          onClick={() => {
+            // TODO: open command bar
+          }}
+        />
       </div>
       {workouts.map((workout, index) => (
         <WorkoutContainer
