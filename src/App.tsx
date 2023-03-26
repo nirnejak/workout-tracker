@@ -1,5 +1,6 @@
 import * as React from "react"
 
+import CommandBar from "./components/CommandBar"
 import Workouts from "./components/Workouts"
 import { ThemeContext, type THEME_CONTEXT } from "./store/ThemeContext"
 import WorkoutsProvider from "./store/WorkoutsContext"
@@ -15,6 +16,7 @@ const App: React.FC = () => {
     <main className="bg-white dark:bg-zinc-900">
       <WorkoutsProvider>
         <Workouts />
+        <CommandBar />
       </WorkoutsProvider>
       <p className="fixed left-5 bottom-0 mb-5 hidden text-sm md:block">
         <span className="dark:text-zinc-500">Current Theme: </span>
