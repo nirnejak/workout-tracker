@@ -1,6 +1,13 @@
 import * as React from "react"
 
-import { GithubFill } from "akar-icons"
+import {
+  ArrowCounterClockwise,
+  Cloud,
+  GithubFill,
+  LinkOut,
+  MoonFill,
+  SunFill,
+} from "akar-icons"
 import { Command } from "cmdk"
 import { ThemeContext, type THEME_CONTEXT } from "src/store/ThemeContext"
 import {
@@ -9,7 +16,7 @@ import {
 } from "src/store/WorkoutsContext"
 
 const commandItemClass =
-  "px-3 py-1.5 cursor-pointer hover:bg-zinc-900 focus:bg-zinc-900 rounded-md"
+  "px-3 py-2 cursor-pointer hover:bg-zinc-900 focus:bg-zinc-900 rounded-md flex items-center gap-1.5 outline-0"
 
 // TODO: Add load animation
 // TODO: Fix click action
@@ -41,11 +48,11 @@ const CommandBar: React.FC = () => {
       open={open}
       onOpenChange={setOpen}
       label="Global Command Menu"
-      className="fixed top-1/2 left-1/2 z-50 w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-md bg-zinc-800/95 p-3"
+      className="fixed top-1/2 left-1/2 z-50 w-5/12 -translate-x-1/2 -translate-y-1/2 rounded-md bg-zinc-800/95 p-3"
     >
-      <Command.Input className="w-full rounded-md px-3 py-1.5 dark:bg-zinc-900 dark:text-zinc-300" />
+      <Command.Input className="w-full rounded-md px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300" />
 
-      <Command.List className="pt-3 text-sm dark:text-zinc-300">
+      <Command.List className="pt-1 dark:text-zinc-300">
         <Command.Item
           className={commandItemClass}
           tabIndex={0}
@@ -56,9 +63,10 @@ const CommandBar: React.FC = () => {
             if (e.key === "Enter") resetWorkouts()
           }}
         >
+          <ArrowCounterClockwise size={13} />
           <span>Reset Workouts</span>
         </Command.Item>
-        <Command.Separator className="my-1 h-[0.5px] bg-gray-900 dark:bg-zinc-500" />
+        <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
         <Command.Item
           className={commandItemClass}
           onClick={() => {
@@ -69,6 +77,7 @@ const CommandBar: React.FC = () => {
           }}
           tabIndex={0}
         >
+          <SunFill size={13} />
           Dune Theme
         </Command.Item>
         <Command.Item
@@ -81,6 +90,7 @@ const CommandBar: React.FC = () => {
           }}
           tabIndex={0}
         >
+          <MoonFill size={13} />
           Oasis Theme
         </Command.Item>
         <Command.Separator />
@@ -94,11 +104,12 @@ const CommandBar: React.FC = () => {
           }}
           tabIndex={0}
         >
+          <Cloud size={13} />
           Rain Forest Theme
         </Command.Item>
-        <Command.Separator className="my-1 h-[0.5px] bg-gray-900 dark:bg-zinc-500" />
+        <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
         <Command.Item
-          className={`${commandItemClass} flex items-center gap-1`}
+          className={commandItemClass}
           onClick={() => {
             window.open("https://github.com/nirnejak/workout-tracker", "_blank")
           }}
@@ -113,6 +124,7 @@ const CommandBar: React.FC = () => {
         >
           <GithubFill size={13} />
           <span>View Source</span>
+          <LinkOut size={13} className="ml-auto" />
         </Command.Item>
       </Command.List>
     </Command.Dialog>
