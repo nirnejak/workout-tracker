@@ -69,7 +69,7 @@ const CommandBar: React.FC = () => {
           }}
           tabIndex={0}
         >
-          Dune
+          Dune Theme
         </Command.Item>
         <Command.Item
           className={commandItemClass}
@@ -81,7 +81,7 @@ const CommandBar: React.FC = () => {
           }}
           tabIndex={0}
         >
-          Oasis
+          Oasis Theme
         </Command.Item>
         <Command.Separator />
         <Command.Item
@@ -94,7 +94,7 @@ const CommandBar: React.FC = () => {
           }}
           tabIndex={0}
         >
-          Rain Forest
+          Rain Forest Theme
         </Command.Item>
         <Command.Separator className="my-1 h-[0.5px] bg-gray-900 dark:bg-zinc-500" />
         <Command.Item
