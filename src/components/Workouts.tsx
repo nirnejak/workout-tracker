@@ -22,12 +22,14 @@ const Workouts: React.FC = () => {
         <h1 className="text-xl font-medium text-slate-800 dark:text-zinc-300">
           Workouts
         </h1>
-        <Command
-          className="text-slate-800 dark:text-zinc-300"
+        <button
+          className="rounded-md p-1.5 outline-none hover:bg-slate-300 focus:bg-slate-300 dark:hover:bg-zinc-800 dark:focus:bg-zinc-800"
           onClick={() => {
             // TODO: open command bar
           }}
-        />
+        >
+          <Command size={18} className="text-slate-800 dark:text-zinc-300" />
+        </button>
       </div>
       {workouts.map((workout, index) => (
         <WorkoutContainer
