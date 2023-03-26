@@ -11,6 +11,10 @@ import {
 const commandItemClass =
   "px-3 py-1.5 cursor-pointer hover:bg-zinc-900 focus:bg-zinc-900 rounded-md"
 
+// TODO: Add load animation
+// TODO: Fix click action
+// TODO: Add keyboard navigation with arrows
+
 const CommandBar: React.FC = () => {
   const [open, setOpen] = React.useState(false)
 
