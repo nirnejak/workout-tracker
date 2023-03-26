@@ -16,7 +16,7 @@ import {
 } from "src/store/WorkoutsContext"
 
 const commandItemClass =
-  "px-3 py-2 cursor-pointer hover:bg-zinc-900 focus:bg-zinc-900 rounded-md flex items-center gap-1.5 outline-0"
+  "px-3 py-2 cursor-pointer hover-bg flex items-center gap-1.5 outline-0"
 
 // TODO: Add load animation
 // TODO: Fix click action
@@ -48,9 +48,9 @@ const CommandBar: React.FC = () => {
       open={open}
       onOpenChange={setOpen}
       label="Global Command Menu"
-      className="fixed top-1/2 left-1/2 z-50 w-5/12 -translate-x-1/2 -translate-y-1/2 rounded-md bg-zinc-800/95 p-3"
+      className="fixed top-1/2 left-1/2 z-50 w-5/12 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-zinc-800/95 p-3"
     >
-      <Command.Input className="w-full rounded-md px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300" />
+      <Command.Input className="w-full rounded-lg px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300" />
 
       <Command.List className="pt-1 dark:text-zinc-300">
         <Command.Item
