@@ -11,14 +11,12 @@
 .hover-bg::after {
   content: "";
   z-index: -1;
-  transform-origin: center;
-  transition: all 150ms;
 
   @apply rounded-lg;
   @apply bg-zinc-900;
   @apply absolute bottom-0 left-0;
   @apply h-full w-full;
-  @apply scale-90 opacity-0;
+  @apply origin-center scale-90 opacity-0 transition-all;
 }
 
 .hover-bg:hover::after,
