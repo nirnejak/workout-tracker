@@ -57,7 +57,7 @@ const CommandBar: React.FC = () => {
     >
       <Command.Input className="w-full rounded-lg px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300" />
 
-      <Command.List className="pt-1 dark:text-zinc-300">
+      <Command.List className="pt-2 dark:text-zinc-300">
         <Command.Item
           className={commandItemClass}
           tabIndex={0}
