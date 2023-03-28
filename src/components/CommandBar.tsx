@@ -48,7 +48,7 @@ const CommandBar: React.FC = () => {
       open={open}
       onOpenChange={setOpen}
       label="Global Command Menu"
-      className="fixed top-1/2 left-1/2 z-50 w-5/12 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-zinc-800/95 p-3"
+      className="fixed top-1/2 left-1/2 z-50 w-5/12 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-slate-100/95 p-3 dark:bg-zinc-800/95"
     >
       <Command.Input className="w-full rounded-lg px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300" />
 

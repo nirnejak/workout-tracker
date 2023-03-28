@@ -11,7 +11,7 @@
 
 .hover-bg::after {
   @apply rounded-lg;
-  @apply bg-zinc-900;
+  @apply bg-slate-200 dark:bg-zinc-900;
   @apply absolute bottom-0 left-0;
   @apply h-full w-full;
   @apply origin-center scale-90 opacity-0 transition-all;
