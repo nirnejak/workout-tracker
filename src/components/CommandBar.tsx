@@ -9,6 +9,10 @@ import {
   SunFill,
 } from "akar-icons"
 import { Command } from "cmdk"
+import {
+  CommandBarContext,
+  type COMMAND_BAR_CONTEXT,
+} from "src/store/CommandContext"
 import { ThemeContext, type THEME_CONTEXT } from "src/store/ThemeContext"
 import {
   WorkoutsContext,
@@ -23,8 +27,9 @@ const commandItemClass =
 // TODO: Add keyboard navigation with arrows
 
 const CommandBar: React.FC = () => {
-  const [open, setOpen] = React.useState(false)
-
+  const { isOpen, setIsOpen } = React.useContext(
+    CommandBarContext
+  ) as COMMAND_BAR_CONTEXT
   const { changeTheme } = React.useContext(ThemeContext) as THEME_CONTEXT
   const { resetWorkouts } = React.useContext(
     WorkoutsContext
@@ -33,7 +38,7 @@ const CommandBar: React.FC = () => {
   React.useEffect(() => {
     const eventHandler = (e: any | React.KeyboardEvent): void => {
       if ((e as KeyboardEvent).key === "k" && (e as KeyboardEvent).metaKey) {
-        setOpen((open) => !open)
+        setIsOpen(true)
       }
     }
 
@@ -41,12 +46,12 @@ const CommandBar: React.FC = () => {
     return () => {
       document.removeEventListener("keydown", eventHandler)
     }
-  }, [])
+  }, [setIsOpen])
 
   return (
     <Command.Dialog
-      open={open}
-      onOpenChange={setOpen}
+      open={isOpen}
+      onOpenChange={setIsOpen}
       label="Global Command Menu"
       className="fixed top-1/2 left-1/2 z-50 w-5/12 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-slate-100/95 p-3 dark:bg-zinc-800/95"
     >

@@ -1,6 +1,10 @@
 import * as React from "react"
 
 import { Command } from "akar-icons"
+import {
+  CommandBarContext,
+  type COMMAND_BAR_CONTEXT,
+} from "src/store/CommandContext"
 
 import WorkoutContainer from "./WorkoutContainer"
 import {
@@ -12,6 +16,9 @@ const Workouts: React.FC = () => {
   const { workouts, reduceCount, increaseCount } = React.useContext(
     WorkoutsContext
   ) as WORKOUTS_CONTEXT
+  const { setIsOpen } = React.useContext(
+    CommandBarContext
+  ) as COMMAND_BAR_CONTEXT
 
   return (
     <div
@@ -23,9 +30,9 @@ const Workouts: React.FC = () => {
           Workouts
         </h1>
         <button
-          className="rounded-md p-1.5 outline-none hover:bg-slate-300 focus:bg-slate-300 dark:hover:bg-zinc-800 dark:focus:bg-zinc-800"
+          className="rounded-md p-1.5 outline-none hover:bg-slate-100 focus:bg-slate-300 dark:hover:bg-zinc-800 dark:focus:bg-zinc-800"
           onClick={() => {
-            // TODO: open command bar
+            setIsOpen(true)
           }}
         >
           <Command size={18} className="text-slate-800 dark:text-zinc-300" />
