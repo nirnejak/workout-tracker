@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <Workouts />
         <CommandBar />
       </WorkoutsProvider>
-      <p className="fixed left-5 bottom-0 mb-5 hidden text-sm md:block">
+      <p className="fixed bottom-0 left-5 mb-5 hidden text-sm md:block">
         <span className="dark:text-zinc-500">Current Theme: </span>
         <span className="text-slate-500 dark:text-zinc-700">{theme}</span>
       </p>
