@@ -22,7 +22,6 @@ import {
 const commandItemClass =
   "px-3 py-2 cursor-pointer hover-bg flex items-center gap-1.5 outline-0"
 
-// TODO: Add load animation
 // TODO: Fix click action
 // TODO: Add keyboard navigation with arrows
 
