@@ -36,7 +36,7 @@ const WorkoutContainer: React.FC<Props> = ({
           </svg>
         </button>
         <input
-          className="rounded-md border-[0.5px] border-slate-400 bg-transparent text-center  text-slate-900 dark:border-zinc-500 dark:text-zinc-500"
+          className="mx-2 w-full rounded-md border-[0.5px] border-slate-400 bg-transparent text-center text-slate-900 dark:border-zinc-500 dark:text-zinc-500"
           type="text"
           readOnly
           value={workout.count}
