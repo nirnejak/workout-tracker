@@ -145,7 +145,7 @@ const CommandBar: React.FC = () => {
             <LinkOut size={13} className="ml-auto" />
           </Command.Item>
         </Command.List>
-        <div className="-mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px] border-slate-300 p-3 text-xs text-slate-800 dark:border-zinc-700 dark:text-zinc-300">
+        <div className="-mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px] border-slate-300 p-3 text-xs text-slate-700 dark:border-zinc-700 dark:text-zinc-300">
           <p className="flex items-center gap-1.5">
             <span>Navigate with</span>
             <span className="rounded-md bg-slate-300 p-1 dark:bg-zinc-700">
