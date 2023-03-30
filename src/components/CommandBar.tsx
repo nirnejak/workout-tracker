@@ -22,7 +22,6 @@ import {
 const commandItemClass =
   "px-3 py-2 cursor-pointer hover-bg flex items-center gap-1.5 outline-0"
 
-// TODO: Fix click action
 // TODO: Add keyboard navigation with arrows
 
 const CommandBar: React.FC = () => {
@@ -60,11 +59,8 @@ const CommandBar: React.FC = () => {
         <Command.Item
           className={commandItemClass}
           tabIndex={0}
-          onClick={() => {
+          onSelect={() => {
             resetWorkouts()
-          }}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") resetWorkouts()
           }}
         >
           <ArrowCounterClockwise size={13} />
@@ -73,11 +69,8 @@ const CommandBar: React.FC = () => {
         <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
         <Command.Item
           className={commandItemClass}
-          onClick={() => {
+          onSelect={() => {
             changeTheme("Dune")
-          }}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") changeTheme("Dune")
           }}
           tabIndex={0}
         >
@@ -86,11 +79,8 @@ const CommandBar: React.FC = () => {
         </Command.Item>
         <Command.Item
           className={commandItemClass}
-          onClick={() => {
+          onSelect={() => {
             changeTheme("Oasis")
-          }}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") changeTheme("Oasis")
           }}
           tabIndex={0}
         >
@@ -100,11 +90,8 @@ const CommandBar: React.FC = () => {
         <Command.Separator />
         <Command.Item
           className={commandItemClass}
-          onClick={() => {
+          onSelect={() => {
             changeTheme("Rain Forest")
-          }}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") changeTheme("Rain Forest")
           }}
           tabIndex={0}
         >
@@ -114,15 +101,8 @@ const CommandBar: React.FC = () => {
         <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
         <Command.Item
           className={commandItemClass}
-          onClick={() => {
+          onSelect={() => {
             window.open("https://github.com/nirnejak/workout-tracker", "_blank")
-          }}
-          onKeyUp={(e) => {
-            if (e.key === "Enter")
-              window.open(
-                "https://github.com/nirnejak/workout-tracker",
-                "_blank"
-              )
           }}
           tabIndex={0}
         >
