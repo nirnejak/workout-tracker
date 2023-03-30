@@ -71,7 +71,7 @@ const CommandBar: React.FC = () => {
           setValue(v)
         }}
         label="Global Command Menu"
-        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise select-none rounded-lg bg-white p-3 dark:bg-zinc-800/95"
+        className="fixed left-1/2 top-1/2 z-50 w-11/12 max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise select-none rounded-lg bg-white p-3 dark:bg-zinc-800/95 md:w-full"
       >
         <Command.Input
           className="w-full rounded-lg bg-slate-200 px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300"
