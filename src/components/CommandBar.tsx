@@ -7,6 +7,9 @@ import {
   LinkOut,
   MoonFill,
   SunFill,
+  ArrowDown,
+  ArrowForward,
+  ArrowUp,
 } from "akar-icons"
 import { Command } from "cmdk"
 import {
@@ -73,7 +76,7 @@ const CommandBar: React.FC = () => {
           ref={inputRef}
         />
 
-        <Command.List className="pt-2 dark:text-zinc-300" ref={listRef}>
+        <Command.List className="py-2 dark:text-zinc-300" ref={listRef}>
           <Command.Item
             className={commandItemClass}
             value="Reset Workout"
@@ -137,6 +140,23 @@ const CommandBar: React.FC = () => {
             <LinkOut size={13} className="ml-auto" />
           </Command.Item>
         </Command.List>
+        <div className="-mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px] border-zinc-700 p-3 text-xs text-zinc-300">
+          <p className="flex items-center gap-1.5">
+            <span>Navigate with</span>
+            <span className="rounded-md bg-zinc-700 p-1">
+              <ArrowUp size={10} />
+            </span>
+            <span className="rounded-md bg-zinc-700 p-1">
+              <ArrowDown size={10} />
+            </span>
+          </p>
+          <p className="flex items-center gap-1.5">
+            <span>Open Link</span>
+            <span className="rotate-180 rounded-md bg-zinc-700 p-1">
+              <ArrowForward size={10} />
+            </span>
+          </p>
+        </div>
       </Command.Dialog>
     </Command>
   )
