@@ -36,8 +36,8 @@ module.exports = {
           from: { transform: "translateX(10px)" },
           to: { transform: "translateX(0)" },
         },
-        zoomIn: {
-          from: { transform: "translate(-50%, -50%) scale(0.95)" },
+        rise: {
+          from: { transform: "translate(-50%, -40%) scale(0.95)" },
           to: { transform: "translate(-50%, -50%) scale(1)" },
         },
         swing: {
@@ -57,9 +57,12 @@ module.exports = {
         slideUp: "slideUp 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideLeft: "slideLeft 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideRight: "slideRight 400ms cubic-bezier(0.16, 1, 0.3, 1)",
-        zoomIn: "zoomIn 150ms cubic-bezier(0.4, 0, 0.2, 1)",
         swing: "swing 1s infinite ease-in-out alternate",
+        rise: "rise 150ms cubic-bezier(0.4, 0, 0.2, 1)",
       },
+    },
+    fontFamily: {
+      sans: ["Graphik", "system-ui", "sans-serif"],
     },
   },
   plugins: [],
