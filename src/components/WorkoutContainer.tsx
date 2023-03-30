@@ -21,7 +21,7 @@ const WorkoutContainer: React.FC<Props> = ({
       </div>
       <div className="flex justify-between">
         <button
-          className="rounded-md bg-slate-900 p-1 text-white dark:bg-zinc-700 dark:text-zinc-900"
+          className="rounded-md bg-slate-900 p-1 text-white transition-colors active:scale-95 dark:bg-zinc-500 dark:text-zinc-900 dark:hover:bg-zinc-400"
           onClick={reduceCount}
         >
           <svg
@@ -42,7 +42,7 @@ const WorkoutContainer: React.FC<Props> = ({
           value={workout.count}
         />
         <button
-          className="rounded-md bg-slate-900 p-1 text-white dark:bg-zinc-700 dark:text-zinc-900"
+          className="rounded-md bg-slate-900 p-1 text-white transition-colors active:scale-95 dark:bg-zinc-500 dark:text-zinc-900 dark:hover:bg-zinc-400"
           onClick={increaseCount}
         >
           <svg
