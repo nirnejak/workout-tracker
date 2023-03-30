@@ -20,9 +20,7 @@ import {
 } from "src/store/WorkoutsContext"
 
 const commandItemClass =
-  "px-3 py-2 cursor-pointer hover-bg flex items-center gap-1.5 outline-0"
-
-// TODO: Add keyboard navigation with arrows
+  "command-item px-3 py-2 cursor-pointer hover-bg flex items-center gap-1.5 outline-0"
 
 const CommandBar: React.FC = () => {
   const { isOpen, setIsOpen } = React.useContext(
@@ -33,7 +31,14 @@ const CommandBar: React.FC = () => {
     WorkoutsContext
   ) as WORKOUTS_CONTEXT
 
+  const listRef = React.useRef(null)
+  const inputRef = React.useRef<HTMLInputElement | null>(null)
+
+  const [value, setValue] = React.useState("Reset Workout")
+
   React.useEffect(() => {
+    inputRef?.current?.focus()
+
     const eventHandler = (e: any | React.KeyboardEvent): void => {
       if ((e as KeyboardEvent).key === "k" && (e as KeyboardEvent).metaKey) {
         setIsOpen(true)
@@ -47,71 +52,93 @@ const CommandBar: React.FC = () => {
   }, [setIsOpen])
 
   return (
-    <Command.Dialog
-      open={isOpen}
-      onOpenChange={setIsOpen}
-      label="Global Command Menu"
-      className="fixed left-1/2 top-1/2 z-50 w-full max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise rounded-lg bg-slate-100/95 p-3 dark:bg-zinc-800/95"
+    <Command
+      className={
+        isOpen ? "fixed left-0 top-0 z-50 h-screen w-full bg-zinc-900/90" : ""
+      }
     >
-      <Command.Input className="w-full rounded-lg px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300" />
+      <Command.Dialog
+        open={isOpen}
+        onOpenChange={setIsOpen}
+        loop={true}
+        value={value}
+        onValueChange={(v) => {
+          setValue(v)
+        }}
+        label="Global Command Menu"
+        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise rounded-lg bg-slate-100/95 p-3 dark:bg-zinc-800/95"
+      >
+        <Command.Input
+          className="w-full rounded-lg px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300"
+          ref={inputRef}
+        />
 
-      <Command.List className="pt-2 dark:text-zinc-300">
-        <Command.Item
-          className={commandItemClass}
-          tabIndex={0}
-          onSelect={() => {
-            resetWorkouts()
-          }}
-        >
-          <ArrowCounterClockwise size={13} />
-          <span>Reset Workouts</span>
-        </Command.Item>
-        <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
-        <Command.Item
-          className={commandItemClass}
-          onSelect={() => {
-            changeTheme("Dune")
-          }}
-          tabIndex={0}
-        >
-          <SunFill size={13} />
-          Dune Theme
-        </Command.Item>
-        <Command.Item
-          className={commandItemClass}
-          onSelect={() => {
-            changeTheme("Oasis")
-          }}
-          tabIndex={0}
-        >
-          <MoonFill size={13} />
-          Oasis Theme
-        </Command.Item>
-        <Command.Separator />
-        <Command.Item
-          className={commandItemClass}
-          onSelect={() => {
-            changeTheme("Rain Forest")
-          }}
-          tabIndex={0}
-        >
-          <Cloud size={13} />
-          Rain Forest Theme
-        </Command.Item>
-        <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
-        <Command.Item
-          className={commandItemClass}
-          onSelect={() => {
-            window.open("https://github.com/nirnejak/workout-tracker", "_blank")
-          }}
-          tabIndex={0}
-        >
-          <GithubFill size={13} />
-          <span>View Source</span>
-          <LinkOut size={13} className="ml-auto" />
-        </Command.Item>
-      </Command.List>
-    </Command.Dialog>
+        <Command.List className="pt-2 dark:text-zinc-300" ref={listRef}>
+          <Command.Item
+            className={commandItemClass}
+            value="Reset Workout"
+            onSelect={() => {
+              resetWorkouts()
+              setIsOpen(false)
+            }}
+          >
+            <ArrowCounterClockwise size={13} />
+            <span>Reset Workouts</span>
+          </Command.Item>
+          <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
+          <Command.Item
+            className={commandItemClass}
+            value="Dune Theme"
+            onSelect={() => {
+              changeTheme("Dune")
+              setIsOpen(false)
+            }}
+          >
+            <SunFill size={13} />
+            Dune Theme
+          </Command.Item>
+          <Command.Item
+            className={commandItemClass}
+            value="Oasis Theme"
+            onSelect={() => {
+              changeTheme("Oasis")
+              setIsOpen(false)
+            }}
+          >
+            <MoonFill size={13} />
+            Oasis Theme
+          </Command.Item>
+          <Command.Separator />
+          <Command.Item
+            className={commandItemClass}
+            value="Rain Forest Theme"
+            onSelect={() => {
+              changeTheme("Rain Forest")
+              setIsOpen(false)
+            }}
+          >
+            <Cloud size={13} />
+            Rain Forest Theme
+          </Command.Item>
+          <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
+          <Command.Item
+            className={commandItemClass}
+            value="View Source"
+            onSelect={() => {
+              window.open(
+                "https://github.com/nirnejak/workout-tracker",
+                "_blank"
+              )
+              setIsOpen(false)
+            }}
+          >
+            <GithubFill size={13} />
+            <span>View Source</span>
+            <LinkOut size={13} className="ml-auto" />
+          </Command.Item>
+        </Command.List>
+      </Command.Dialog>
+    </Command>
   )
 }
 
