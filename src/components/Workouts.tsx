@@ -30,7 +30,7 @@ const Workouts: React.FC = () => {
           Workouts
         </h1>
         <button
-          className="rounded-md p-1.5 outline-none hover:bg-slate-100 focus:bg-slate-300 dark:hover:bg-zinc-800 dark:focus:bg-zinc-800"
+          className="rounded-md p-1.5 outline-none hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-zinc-800 dark:focus:bg-zinc-800"
           onClick={() => {
             setIsOpen(true)
           }}

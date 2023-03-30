@@ -57,7 +57,9 @@ const CommandBar: React.FC = () => {
   return (
     <Command
       className={
-        isOpen ? "fixed left-0 top-0 z-50 h-screen w-full bg-zinc-900/90" : ""
+        isOpen
+          ? "fixed left-0 top-0 z-50 h-screen w-full bg-slate-400/90 dark:bg-zinc-900/90"
+          : ""
       }
     >
       <Command.Dialog
@@ -69,14 +71,17 @@ const CommandBar: React.FC = () => {
           setValue(v)
         }}
         label="Global Command Menu"
-        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise select-none rounded-lg bg-slate-100/95 p-3 dark:bg-zinc-800/95"
+        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise select-none rounded-lg bg-white p-3 dark:bg-zinc-800/95"
       >
         <Command.Input
-          className="w-full rounded-lg px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300"
+          className="w-full rounded-lg bg-slate-200 px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300"
           ref={inputRef}
         />
 
-        <Command.List className="py-2 dark:text-zinc-300" ref={listRef}>
+        <Command.List
+          className="py-2 text-slate-700 dark:text-zinc-300"
+          ref={listRef}
+        >
           <Command.Item
             className={commandItemClass}
             value="Reset Workout"
@@ -88,7 +93,7 @@ const CommandBar: React.FC = () => {
             <ArrowCounterClockwise size={13} />
             <span>Reset Workouts</span>
           </Command.Item>
-          <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
+          <Command.Separator className="my-1 h-[0.5px] bg-slate-300 dark:bg-zinc-700" />
           <Command.Item
             className={commandItemClass}
             value="Dune Theme"
@@ -123,7 +128,7 @@ const CommandBar: React.FC = () => {
             <Cloud size={13} />
             Rain Forest Theme
           </Command.Item>
-          <Command.Separator className="my-1 h-[0.5px] bg-slate-900 dark:bg-zinc-700" />
+          <Command.Separator className="my-1 h-[0.5px] bg-slate-300 dark:bg-zinc-700" />
           <Command.Item
             className={commandItemClass}
             value="View Source"
@@ -140,19 +145,19 @@ const CommandBar: React.FC = () => {
             <LinkOut size={13} className="ml-auto" />
           </Command.Item>
         </Command.List>
-        <div className="-mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px] border-zinc-700 p-3 text-xs text-zinc-300">
+        <div className="-mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px] border-slate-300 p-3 text-xs text-slate-800 dark:border-zinc-700 dark:text-zinc-300">
           <p className="flex items-center gap-1.5">
             <span>Navigate with</span>
-            <span className="rounded-md bg-zinc-700 p-1">
+            <span className="rounded-md bg-slate-300 p-1 dark:bg-zinc-700">
               <ArrowUp size={10} />
             </span>
-            <span className="rounded-md bg-zinc-700 p-1">
+            <span className="rounded-md bg-slate-300 p-1 dark:bg-zinc-700">
               <ArrowDown size={10} />
             </span>
           </p>
           <p className="flex items-center gap-1.5">
             <span>Open Link</span>
-            <span className="rotate-180 rounded-md bg-zinc-700 p-1">
+            <span className="rotate-180 rounded-md bg-slate-300 p-1 dark:bg-zinc-700">
               <ArrowForward size={10} />
             </span>
           </p>
