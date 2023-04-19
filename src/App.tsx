@@ -20,6 +20,14 @@ const App: React.FC = () => {
         <span className="dark:text-zinc-500">Current Theme: </span>
         <span className="text-slate-500 dark:text-zinc-700">{theme}</span>
       </p>
+      <p className="fixed bottom-0 right-5 mb-5 hidden text-sm md:block">
+        <a
+          href="https://github.com/nirnejak/workout-tracker"
+          className="dark:text-zinc-500"
+        >
+          View Source
+        </a>
+      </p>
     </main>
   )
 }
