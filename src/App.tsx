@@ -5,8 +5,6 @@ import Workouts from "./components/Workouts"
 import { ThemeContext, type THEME_CONTEXT } from "./store/ThemeContext"
 import WorkoutsProvider from "./store/WorkoutsContext"
 
-// TODO: Radix UI
-
 const App: React.FC = () => {
   const { theme } = React.useContext(ThemeContext) as THEME_CONTEXT
 
