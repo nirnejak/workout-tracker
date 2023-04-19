@@ -24,6 +24,8 @@ const App: React.FC = () => {
         <a
           href="https://github.com/nirnejak/workout-tracker"
           className="dark:text-zinc-500"
+          target="_blank"
+          rel="noreferrer"
         >
           View Source
         </a>
