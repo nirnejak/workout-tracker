@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import ReactDOM from "react-dom/client"
 import { Toaster } from "sonner"
 
-import App from "./App"
+import Home from "./pages/Home"
 import CommandBarProvider from "./store/CommandContext"
 import ThemeProvider from "./store/ThemeContext"
 
@@ -13,7 +13,7 @@ import "./index.css"
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
   },
 ])
 

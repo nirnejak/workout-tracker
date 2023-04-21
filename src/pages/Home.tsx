@@ -1,9 +1,9 @@
 import * as React from "react"
 
-import CommandBar from "./components/CommandBar"
-import Workouts from "./components/Workouts"
-import { ThemeContext, type THEME_CONTEXT } from "./store/ThemeContext"
-import WorkoutsProvider from "./store/WorkoutsContext"
+import CommandBar from "../components/CommandBar"
+import Workouts from "../components/Workouts"
+import { ThemeContext, type THEME_CONTEXT } from "../store/ThemeContext"
+import WorkoutsProvider from "../store/WorkoutsContext"
 
 const App: React.FC = () => {
   const { theme } = React.useContext(ThemeContext) as THEME_CONTEXT
