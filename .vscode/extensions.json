@@ -1,9 +1,11 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "dsznajder.es7-react-js-snippets",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
-    "jock.svg"
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "jock.svg",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
