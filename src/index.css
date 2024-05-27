@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
 .command-item[aria-selected="true"] {
   @apply after:scale-100 after:opacity-100;
 }
