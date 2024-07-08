@@ -12,7 +12,7 @@
     "format": "prettier --write src/**/*.{js,jsx}"
   },
   "dependencies": {
-    "@types/node": "^20.14.9",
+    "@types/node": "^20.14.10",
     "akar-icons": "^1.9.31",
     "cmdk": "^1.0.0",
     "localforage": "^1.10.0",
@@ -20,15 +20,15 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-loading-skeleton": "^3.4.0",
-    "react-router-dom": "^6.24.0",
+    "react-router-dom": "^6.24.1",
     "sonner": "^1.5.0",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.14.1",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
@@ -39,7 +39,7 @@
     "eslint-plugin-n": "^17.9.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-promise": "^6.2.0",
+    "eslint-plugin-promise": "^6.4.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-tailwindcss": "^3.17.4",
@@ -49,8 +49,8 @@
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.2",
-    "vite": "^5.3.2",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3",
     "vite-plugin-pwa": "^0.20.0",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2"
