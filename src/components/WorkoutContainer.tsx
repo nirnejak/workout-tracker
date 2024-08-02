@@ -30,7 +30,7 @@ const WorkoutContainer: React.FC<Props> = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-5 w-5"
+            className="size-5"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
           </svg>
@@ -51,7 +51,7 @@ const WorkoutContainer: React.FC<Props> = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-5 w-5"
+            className="size-5"
           >
             <path
               strokeLinecap="round"
