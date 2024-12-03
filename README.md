@@ -2,38 +2,50 @@
   Workout Tracker
 </h1>
 
-### Technologies Used
-
-- React(TypeScript, Hooks, Context)
-- Tailwind
-- Vite
-
 ---
 
-## 🚀 Quick start
+## Available Scripts
 
-**Available Scripts**
+**Install Dependencies**
 
 ```bash
 bun install
 ```
 
+**Start Development Server**
+
 ```bash
 bun start
 ```
 
-```bash
-bun run format
-```
+**Lint all the files**
 
 ```bash
 bun run lint
 ```
 
+**Format all files with Prettier**
+
+```bash
+bun run format
+```
+
+**Check TypeScript issues**
+
+```bash
+bun run type-check
+```
+
+**Build for Production**
+
 ```bash
 bun run build
 ```
 
+**Preview Production Server**
+
 ```bash
 bun run preview
 ```
+
+---
