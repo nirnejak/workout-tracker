@@ -15,17 +15,25 @@
 **Available Scripts**
 
 ```bash
-npm install
+bun install
 ```
 
 ```bash
-npm run format
+bun start
 ```
 
 ```bash
-npm run lint
+bun run format
 ```
 
 ```bash
-npm run build
+bun run lint
+```
+
+```bash
+bun run build
+```
+
+```bash
+bun run preview
 ```
