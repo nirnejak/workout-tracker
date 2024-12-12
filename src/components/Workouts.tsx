@@ -1,24 +1,14 @@
 import * as React from "react"
 
 import { Command } from "akar-icons"
-import {
-  CommandBarContext,
-  type COMMAND_BAR_CONTEXT,
-} from "src/store/CommandContext"
+import { useCommandBar } from "src/store/CommandContext"
 
 import WorkoutContainer from "./WorkoutContainer"
-import {
-  WorkoutsContext,
-  type WORKOUTS_CONTEXT,
-} from "../store/WorkoutsContext"
+import { useWorkouts } from "../store/WorkoutsContext"
 
 const Workouts: React.FC = () => {
-  const { workouts, reduceCount, increaseCount } = React.useContext(
-    WorkoutsContext
-  ) as WORKOUTS_CONTEXT
-  const { setIsOpen } = React.useContext(
-    CommandBarContext
-  ) as COMMAND_BAR_CONTEXT
+  const { workouts, reduceCount, increaseCount } = useWorkouts()
+  const { setIsOpen } = useCommandBar()
 
   return (
     <div
