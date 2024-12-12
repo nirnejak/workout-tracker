@@ -52,7 +52,7 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
   React.useEffect(() => {
     const localWorkouts = localStorage.getItem(LOCAL_STORAGE_FIELD)
     if (localWorkouts !== null) {
-      setWorkouts(JSON.parse(localWorkouts))
+      setWorkouts(JSON.parse(localWorkouts) as WorkoutType[])
     }
   }, [])
 
@@ -108,3 +108,10 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
 }
 
 export default WorkoutsProvider
+
+export const useWorkouts = (): WORKOUTS_CONTEXT => {
+  const context = React.useContext(WorkoutsContext)
+  if (context === null)
+    throw new Error("useTheme must be used within a ThemeProvider")
+  return context
+}
