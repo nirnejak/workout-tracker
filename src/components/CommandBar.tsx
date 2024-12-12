@@ -12,27 +12,17 @@ import {
   ArrowUp,
 } from "akar-icons"
 import { Command } from "cmdk"
-import {
-  CommandBarContext,
-  type COMMAND_BAR_CONTEXT,
-} from "src/store/CommandContext"
-import { ThemeContext, type THEME_CONTEXT } from "src/store/ThemeContext"
-import {
-  WorkoutsContext,
-  type WORKOUTS_CONTEXT,
-} from "src/store/WorkoutsContext"
+import { useCommandBar } from "src/store/CommandContext"
+import { useTheme } from "src/store/ThemeContext"
+import { useWorkouts } from "src/store/WorkoutsContext"
 
 const commandItemClass =
   "command-item px-3 py-2 cursor-pointer hover-bg flex items-center gap-1.5 outline-0"
 
 const CommandBar: React.FC = () => {
-  const { isOpen, setIsOpen } = React.useContext(
-    CommandBarContext
-  ) as COMMAND_BAR_CONTEXT
-  const { changeTheme } = React.useContext(ThemeContext) as THEME_CONTEXT
-  const { resetWorkouts } = React.useContext(
-    WorkoutsContext
-  ) as WORKOUTS_CONTEXT
+  const { isOpen, setIsOpen } = useCommandBar()
+  const { changeTheme } = useTheme()
+  const { resetWorkouts } = useWorkouts()
 
   const listRef = React.useRef(null)
   const inputRef = React.useRef<HTMLInputElement | null>(null)
@@ -71,7 +61,7 @@ const CommandBar: React.FC = () => {
           setValue(v)
         }}
         label="Global Command Menu"
-        className="fixed left-1/2 top-1/2 z-50 w-11/12 max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise select-none rounded-lg bg-white p-3 dark:bg-zinc-800/95 md:w-full"
+        className="fixed left-1/2 top-1/2 z-50 w-11/12 max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise select-none rounded-lg bg-white p-3 md:w-full dark:bg-zinc-800/95"
       >
         <Command.Input
           className="w-full rounded-lg bg-slate-200 px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300"
