@@ -2,11 +2,11 @@ import * as React from "react"
 
 type SUPPORTED_THEME = "Forest" | "Dune" | "Oasis"
 
-const themes = {
+const THEME_VALUES = {
   Forest: {
     primary: "#ccddac",
     dark: "#2c462a",
-    light: "#2c462a",
+    light: "#f7fecd",
   },
   Dune: {
     primary: "#feb123",
@@ -22,7 +22,7 @@ const themes = {
 
 export interface THEME_CONTEXT {
   theme: SUPPORTED_THEME
-  changeTheme: (newTheme: SUPPORTED_THEME) => void
+  setTheme: (newTheme: SUPPORTED_THEME) => void
 }
 
 export const ThemeContext = React.createContext<THEME_CONTEXT | null>(null)
@@ -34,18 +34,16 @@ interface Props {
 const ThemeProvider: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = React.useState<SUPPORTED_THEME>("Forest")
 
-  const changeTheme = (newTheme: SUPPORTED_THEME): void => {
-    setTheme(newTheme)
-
-    const currentTheme = themes[newTheme]
+  React.useEffect(() => {
+    const currentTheme = THEME_VALUES[theme]
     const ele = document.documentElement.style
     ele.setProperty("--color-primary", currentTheme.primary)
     ele.setProperty("--color-light", currentTheme.light)
     ele.setProperty("--color-dark", currentTheme.dark)
-  }
+  }, [theme])
 
   return (
-    <ThemeContext.Provider value={{ theme, changeTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   )

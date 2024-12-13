@@ -7,21 +7,20 @@ import WorkoutsProvider from "../store/WorkoutsContext"
 
 const App: React.FC = () => {
   const { theme } = useTheme()
-
   return (
-    <main className="bg-white dark:bg-zinc-900">
+    <main className="bg-[--color-light]">
       <WorkoutsProvider>
         <Workouts />
         <CommandBar />
       </WorkoutsProvider>
       <p className="fixed bottom-0 left-5 mb-5 hidden text-sm md:block">
-        <span className="dark:text-zinc-500">Current Theme: </span>
-        <span className="text-slate-500 dark:text-zinc-700">{theme}</span>
+        <span className="text-[--color-dark]">Current Theme: </span>
+        <span className="text-[--color-dark]">{theme}</span>
       </p>
       <p className="fixed bottom-0 right-5 mb-5 hidden text-sm md:block">
         <a
           href="https://github.com/nirnejak/workout-tracker"
-          className="dark:text-zinc-500"
+          className="text-[--color-dark]"
           target="_blank"
           rel="noreferrer"
         >

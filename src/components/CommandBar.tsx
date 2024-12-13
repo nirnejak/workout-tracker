@@ -21,7 +21,7 @@ const commandItemClass =
 
 const CommandBar: React.FC = () => {
   const { isOpen, setIsOpen } = useCommandBar()
-  const { changeTheme } = useTheme()
+  const { setTheme } = useTheme()
   const { resetWorkouts } = useWorkouts()
 
   const listRef = React.useRef(null)
@@ -47,9 +47,7 @@ const CommandBar: React.FC = () => {
   return (
     <Command
       className={
-        isOpen
-          ? "fixed left-0 top-0 z-50 h-screen w-full bg-slate-400/90 dark:bg-zinc-900/90"
-          : ""
+        isOpen ? "fixed left-0 top-0 z-50 h-screen w-full bg-black/70" : ""
       }
     >
       <Command.Dialog
@@ -61,17 +59,14 @@ const CommandBar: React.FC = () => {
           setValue(v)
         }}
         label="Global Command Menu"
-        className="fixed left-1/2 top-1/2 z-50 w-11/12 max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise select-none rounded-lg bg-white p-3 md:w-full dark:bg-zinc-800/95"
+        className="fixed left-1/2 top-1/2 z-50 w-11/12 max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-rise select-none rounded-lg bg-[--color-light] p-3 md:w-full"
       >
         <Command.Input
-          className="w-full rounded-lg bg-slate-200 px-3 py-2 outline-none dark:bg-zinc-900 dark:text-zinc-300"
+          className="w-full rounded-lg bg-[--color-primary] px-3 py-2 text-[--color-dark] outline-none"
           ref={inputRef}
         />
 
-        <Command.List
-          className="py-2 text-slate-700 dark:text-zinc-300"
-          ref={listRef}
-        >
+        <Command.List className="py-2 text-[--color-dark]" ref={listRef}>
           <Command.Item
             className={commandItemClass}
             value="Reset Workout"
@@ -83,12 +78,12 @@ const CommandBar: React.FC = () => {
             <ArrowCounterClockwise size={13} />
             <span>Reset Workouts</span>
           </Command.Item>
-          <Command.Separator className="my-1 h-[0.5px] bg-slate-300 dark:bg-zinc-700" />
+          <Command.Separator className="my-1 h-[0.5px] bg-[--color-primary]" />
           <Command.Item
             className={commandItemClass}
             value="Dune Theme"
             onSelect={() => {
-              changeTheme("Dune")
+              setTheme("Dune")
               setIsOpen(false)
             }}
           >
@@ -99,26 +94,25 @@ const CommandBar: React.FC = () => {
             className={commandItemClass}
             value="Oasis Theme"
             onSelect={() => {
-              changeTheme("Oasis")
+              setTheme("Oasis")
               setIsOpen(false)
             }}
           >
             <MoonFill size={13} />
             Oasis Theme
           </Command.Item>
-          <Command.Separator />
           <Command.Item
             className={commandItemClass}
             value="Forest Theme"
             onSelect={() => {
-              changeTheme("Forest")
+              setTheme("Forest")
               setIsOpen(false)
             }}
           >
             <Cloud size={13} />
             Forest Theme
           </Command.Item>
-          <Command.Separator className="my-1 h-[0.5px] bg-slate-300 dark:bg-zinc-700" />
+          <Command.Separator className="my-1 h-[0.5px] bg-[--color-primary]" />
           <Command.Item
             className={commandItemClass}
             value="View Source"
@@ -135,19 +129,19 @@ const CommandBar: React.FC = () => {
             <LinkOut size={13} className="ml-auto" />
           </Command.Item>
         </Command.List>
-        <div className="-mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px] border-slate-300 p-3 text-xs text-slate-700 dark:border-zinc-700 dark:text-zinc-300">
+        <div className="-mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px] border-[--color-primary] p-3 text-xs text-[--color-dark]">
           <p className="flex items-center gap-1.5">
             <span>Navigate with</span>
-            <span className="rounded-md bg-slate-300 p-1 dark:bg-zinc-700">
+            <span className="rounded-md bg-[--color-primary] p-1">
               <ArrowUp size={10} />
             </span>
-            <span className="rounded-md bg-slate-300 p-1 dark:bg-zinc-700">
+            <span className="rounded-md bg-[--color-primary] p-1">
               <ArrowDown size={10} />
             </span>
           </p>
           <p className="flex items-center gap-1.5">
             <span>Open Link</span>
-            <span className="rotate-180 rounded-md bg-slate-300 p-1 dark:bg-zinc-700">
+            <span className="rotate-180 rounded-md bg-[--color-primary] p-1">
               <ArrowForward size={10} />
             </span>
           </p>

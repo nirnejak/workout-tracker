@@ -16,16 +16,14 @@ const Workouts: React.FC = () => {
       style={{ fontFamily: "system-ui, sans-serif" }}
     >
       <div className="relative mb-3 flex items-center justify-between">
-        <h1 className="text-xl font-medium text-slate-800 dark:text-zinc-300">
-          Workouts
-        </h1>
+        <h1 className="text-xl font-medium text-[--color-dark]">Workouts</h1>
         <button
           className="rounded-md p-1.5 outline-none hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-zinc-800 dark:focus:bg-zinc-800"
           onClick={() => {
             setIsOpen(true)
           }}
         >
-          <Command size={18} className="text-slate-800 dark:text-zinc-300" />
+          <Command size={18} className="text-[--color-dark]" />
         </button>
       </div>
       {workouts.map((workout, index) => (

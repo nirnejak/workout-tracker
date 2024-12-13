@@ -12,16 +12,14 @@ const WorkoutContainer: React.FC<Props> = ({
   increaseCount,
 }) => {
   return (
-    <div className="mb-3 rounded-lg border-[0.7px] border-slate-400 p-3 text-sm dark:border-zinc-500">
-      <div className="mb-5 flex justify-between">
-        <p className="text-slate-800 dark:text-zinc-200">{workout.name}</p>
-        <p className="text-slate-400 dark:text-zinc-500">
-          Set of {workout.set}
-        </p>
+    <div className="mb-3 rounded-lg border border-[--colo-dark] p-3 text-sm text-[--color-dark]">
+      <div className="mb-5 flex justify-between text-[--color-dark]">
+        <p>{workout.name}</p>
+        <p>Set of {workout.set}</p>
       </div>
       <div className="flex justify-between">
         <button
-          className="rounded-md bg-slate-900 p-1 text-white transition-colors active:scale-95 dark:bg-zinc-400 dark:text-zinc-900 dark:hover:bg-zinc-400"
+          className="rounded-md bg-[--color-dark] p-1 text-[--color-light] transition-colors hover:opacity-95 active:scale-95"
           onClick={reduceCount}
         >
           <svg
@@ -35,14 +33,11 @@ const WorkoutContainer: React.FC<Props> = ({
             <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
           </svg>
         </button>
-        <input
-          className="mx-2 w-full rounded-md border-[0.5px] border-slate-400 bg-transparent text-center text-slate-900 dark:border-zinc-400 dark:text-zinc-500"
-          type="text"
-          readOnly
-          value={workout.count}
-        />
+        <div className="mx-2 flex w-full items-center justify-center rounded-md bg-[--color-primary] text-[--color-dark]">
+          {workout.count}
+        </div>
         <button
-          className="rounded-md bg-slate-900 p-1 text-white transition-colors active:scale-95 dark:bg-zinc-400 dark:text-zinc-900 dark:hover:bg-zinc-400"
+          className="rounded-md bg-[--color-dark] p-1 text-[--color-light] transition-colors hover:opacity-95 active:scale-95"
           onClick={increaseCount}
         >
           <svg
