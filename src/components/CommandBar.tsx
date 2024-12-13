@@ -12,9 +12,9 @@ import {
   ArrowUp,
 } from "akar-icons"
 import { Command } from "cmdk"
-import { useCommandBar } from "src/store/CommandContext"
-import { useTheme } from "src/store/ThemeContext"
-import { useWorkouts } from "src/store/WorkoutsContext"
+import { useCommandBar } from "src/context/CommandContext"
+import { useTheme } from "src/context/ThemeContext"
+import { useWorkouts } from "src/context/WorkoutsContext"
 
 const commandItemClass =
   "command-item px-3 py-2 cursor-pointer hover-bg flex items-center gap-1.5 outline-0"
