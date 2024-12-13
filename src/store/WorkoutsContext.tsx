@@ -112,6 +112,6 @@ export default WorkoutsProvider
 export const useWorkouts = (): WORKOUTS_CONTEXT => {
   const context = React.useContext(WorkoutsContext)
   if (context === null)
-    throw new Error("useTheme must be used within a ThemeProvider")
+    throw new Error("useWorkouts must be used within a WorkoutsProvider")
   return context
 }
