@@ -27,6 +27,6 @@ export default CommandBarProvider
 export const useCommandBar = (): COMMAND_BAR_CONTEXT => {
   const context = React.useContext(CommandBarContext)
   if (context === null)
-    throw new Error("useCommandBar must be used within a ThemeProvider")
+    throw new Error("useCommandBar must be used within a CommandBarProvider")
   return context
 }
