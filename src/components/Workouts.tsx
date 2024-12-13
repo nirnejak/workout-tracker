@@ -18,7 +18,7 @@ const Workouts: React.FC = () => {
       <div className="relative mb-3 flex items-center justify-between">
         <h1 className="text-xl font-medium text-[--color-dark]">Workouts</h1>
         <button
-          className="rounded-md p-1.5 outline-none hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-zinc-800 dark:focus:bg-zinc-800"
+          className="rounded-md p-1.5 outline-none transition-colors hover:bg-[--color-primary]"
           onClick={() => {
             setIsOpen(true)
           }}
