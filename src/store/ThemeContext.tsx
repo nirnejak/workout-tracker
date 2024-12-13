@@ -1,9 +1,9 @@
 import * as React from "react"
 
-type SUPPORTED_THEME = "Rain Forest" | "Dune" | "Oasis"
+type SUPPORTED_THEME = "Forest" | "Dune" | "Oasis"
 
 const themes = {
-  "Rain Forest": {
+  Forest: {
     primary: "#ccddac",
     dark: "#2c462a",
     light: "#2c462a",

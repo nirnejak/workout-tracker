@@ -109,14 +109,14 @@ const CommandBar: React.FC = () => {
           <Command.Separator />
           <Command.Item
             className={commandItemClass}
-            value="Rain Forest Theme"
+            value="Forest Theme"
             onSelect={() => {
-              changeTheme("Rain Forest")
+              changeTheme("Forest")
               setIsOpen(false)
             }}
           >
             <Cloud size={13} />
-            Rain Forest Theme
+            Forest Theme
           </Command.Item>
           <Command.Separator className="my-1 h-[0.5px] bg-slate-300 dark:bg-zinc-700" />
           <Command.Item
