@@ -32,7 +32,7 @@ interface Props {
 }
 
 const ThemeProvider: React.FC<Props> = ({ children }) => {
-  const [theme, setTheme] = React.useState<SUPPORTED_THEME>("Rain Forest")
+  const [theme, setTheme] = React.useState<SUPPORTED_THEME>("Forest")
 
   const changeTheme = (newTheme: SUPPORTED_THEME): void => {
     setTheme(newTheme)
