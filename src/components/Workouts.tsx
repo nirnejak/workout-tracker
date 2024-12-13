@@ -2,9 +2,9 @@ import * as React from "react"
 
 import { Command } from "akar-icons"
 import { useCommandBar } from "src/context/CommandContext"
+import { useWorkouts } from "src/context/WorkoutsContext"
 
 import WorkoutContainer from "./WorkoutContainer"
-import { useWorkouts } from "../context/WorkoutsContext"
 
 const Workouts: React.FC = () => {
   const { workouts, reduceCount, increaseCount } = useWorkouts()

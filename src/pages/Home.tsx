@@ -1,9 +1,9 @@
 import * as React from "react"
 
-import CommandBar from "../components/CommandBar"
-import Workouts from "../components/Workouts"
-import { useTheme } from "../context/ThemeContext"
-import WorkoutsProvider from "../context/WorkoutsContext"
+import CommandBar from "src/components/CommandBar"
+import Workouts from "src/components/Workouts"
+import { useTheme } from "src/context/ThemeContext"
+import WorkoutsProvider from "src/context/WorkoutsContext"
 
 const App: React.FC = () => {
   const { theme } = useTheme()
