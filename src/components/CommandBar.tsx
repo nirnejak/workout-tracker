@@ -10,8 +10,10 @@ import {
   ArrowDown,
   ArrowForward,
   ArrowUp,
+  TrashBin,
 } from "akar-icons"
 import { Command } from "cmdk"
+import { toast } from "sonner"
 import { useCommandBar } from "src/context/CommandContext"
 import { useTheme } from "src/context/ThemeContext"
 import { useWorkouts } from "src/context/WorkoutsContext"
@@ -43,6 +45,13 @@ const CommandBar: React.FC = () => {
       document.removeEventListener("keydown", eventHandler)
     }
   }, [setIsOpen])
+
+  const clearLocalStorage = (): void => {
+    localStorage.clear()
+    toast("Local Storage Cleared", {
+      icon: <TrashBin size={15} />,
+    })
+  }
 
   return (
     <Command
@@ -77,6 +86,17 @@ const CommandBar: React.FC = () => {
           >
             <ArrowCounterClockwise size={13} />
             <span>Reset Workouts</span>
+          </Command.Item>
+          <Command.Item
+            className={commandItemClass}
+            value="Clear Local Storage"
+            onSelect={() => {
+              clearLocalStorage()
+              setIsOpen(false)
+            }}
+          >
+            <TrashBin size={13} />
+            <span>Clear Local Storage</span>
           </Command.Item>
           <Command.Separator className="my-1 h-[0.5px] bg-[--color-primary]" />
           <Command.Item
