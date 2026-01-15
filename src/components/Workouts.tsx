@@ -11,7 +11,7 @@ const Workouts: React.FC = () => {
   const { setIsOpen } = useCommandBar()
 
   return (
-    <div className="mx-auto w-full p-4 md:w-[300px]">
+    <div className="mx-auto w-full p-4 md:w-75">
       <div className="relative mb-3 flex items-center justify-between">
         <h1 className="text-xl font-medium text-[--color-dark]">Workouts</h1>
         <button

@@ -14,6 +14,7 @@ import {
 } from "akar-icons"
 import { Command } from "cmdk"
 import { toast } from "sonner"
+
 import { useCommandBar } from "src/context/CommandContext"
 import { useTheme } from "src/context/ThemeContext"
 import { useWorkouts } from "src/context/WorkoutsContext"
