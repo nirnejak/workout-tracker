@@ -12,14 +12,22 @@ const WorkoutContainer: React.FC<Props> = ({
   increaseCount,
 }) => {
   return (
-    <div className="mb-3 rounded-xl bg-[--color-primary] p-3 text-sm text-[--color-dark]">
+    <div
+      className="
+        mb-3 rounded-xl bg-[--color-primary] p-3 text-sm text-[--color-dark]
+      "
+    >
       <div className="mb-5 flex justify-between text-[--color-dark]">
         <p>{workout.name}</p>
         <p>Set of {workout.set}</p>
       </div>
       <div className="flex justify-between">
         <button
-          className="rounded-lg bg-[--color-dark] p-1 text-[--color-light] transition-all hover:opacity-95 active:scale-95"
+          className="
+            rounded-lg bg-[--color-dark] p-1 text-[--color-light] transition-all
+            hover:opacity-95
+            active:scale-95
+          "
           onClick={reduceCount}
         >
           <svg
@@ -33,11 +41,20 @@ const WorkoutContainer: React.FC<Props> = ({
             <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
           </svg>
         </button>
-        <div className="mx-2 flex w-full items-center justify-center rounded-lg border border-[--color-dark] text-[--color-dark]">
+        <div
+          className="
+            mx-2 flex w-full items-center justify-center rounded-lg border
+            border-[--color-dark] text-[--color-dark]
+          "
+        >
           {workout.count}
         </div>
         <button
-          className="rounded-lg bg-[--color-dark] p-1 text-[--color-light] transition-all hover:opacity-95 active:scale-95"
+          className="
+            rounded-lg bg-[--color-dark] p-1 text-[--color-light] transition-all
+            hover:opacity-95
+            active:scale-95
+          "
           onClick={increaseCount}
         >
           <svg

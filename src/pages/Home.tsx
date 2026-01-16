@@ -14,10 +14,20 @@ const App: React.FC = () => {
         <Workouts />
         <CommandBar />
       </WorkoutsProvider>
-      <p className="fixed bottom-0 left-5 mb-5 hidden text-sm text-[--color-dark] md:block">
+      <p
+        className="
+          fixed bottom-0 left-5 mb-5 hidden text-sm text-[--color-dark]
+          md:block
+        "
+      >
         Current Theme: {theme}
       </p>
-      <p className="fixed bottom-0 right-5 mb-5 hidden text-sm md:block">
+      <p
+        className="
+          fixed right-5 bottom-0 mb-5 hidden text-sm
+          md:block
+        "
+      >
         <a
           href="https://github.com/nirnejak/workout-tracker"
           className="text-[--color-dark]"
