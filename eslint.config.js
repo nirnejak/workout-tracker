@@ -1,5 +1,6 @@
 import js from "@eslint/js"
 import globals from "globals"
+import react from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
 import tseslint from "typescript-eslint"
@@ -17,15 +18,23 @@ export default defineConfig([
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
+      react.configs.flat.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
     plugins: {
       promise,
       "jsx-a11y": jsxA11y,
       "better-tailwindcss": betterTailwindcss,
     },
     rules: {
+      // React rules
+      "react/react-in-jsx-scope": "off", // Not needed with React 17+ JSX transform
       // Promise rules
       "promise/always-return": "error",
       "promise/no-return-wrap": "error",
@@ -40,7 +49,7 @@ export default defineConfig([
       "promise/no-return-in-finally": "warn",
       "promise/valid-params": "warn",
       "promise/no-multiple-resolved": "error",
-      // JSX a11y rules - recommended set
+      // JSX a11y rules
       "jsx-a11y/alt-text": "error",
       "jsx-a11y/anchor-has-content": "error",
       "jsx-a11y/anchor-is-valid": "error",
@@ -74,18 +83,13 @@ export default defineConfig([
       "jsx-a11y/role-supports-aria-props": "error",
       "jsx-a11y/scope": "error",
       "jsx-a11y/tabindex-no-positive": "error",
-      // Better Tailwind CSS rules
-      "better-tailwindcss/enforce-consistent-line-wrapping": "warn",
-      "better-tailwindcss/enforce-consistent-class-order": "warn",
-      "better-tailwindcss/no-duplicate-classes": "warn",
-      "better-tailwindcss/no-deprecated-classes": "warn",
-      "better-tailwindcss/no-unnecessary-whitespace": "warn",
-      "better-tailwindcss/enforce-canonical-classes": "warn",
+      // Better Tailwind CSS rules (simplified via recommended + overrides)
+      ...betterTailwindcss.configs["recommended-warn"].rules,
       "better-tailwindcss/no-unknown-classes": "error",
       "better-tailwindcss/no-conflicting-classes": "error",
     },
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2022,
       globals: globals.browser,
     },
   },
