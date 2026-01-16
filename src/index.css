@@ -7,9 +7,9 @@
 @theme {
   --font-sans: system-ui, sans-serif;
 
-  --color-primary: #4baeff;
-  --color-dark: #11284a;
-  --color-light: #f6f6eb;
+  --color-primary: unset;
+  --color-dark: unset;
+  --color-light: unset;
 
   --animate-swing: swing 1s infinite ease-in-out alternate;
   --animate-marquee: marquee 25s linear infinite;
