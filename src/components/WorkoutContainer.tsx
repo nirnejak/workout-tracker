@@ -12,19 +12,15 @@ const WorkoutContainer: React.FC<Props> = ({
   increaseCount,
 }) => {
   return (
-    <div
-      className="
-        mb-3 rounded-xl bg-[--color-primary] p-3 text-sm text-[--color-dark]
-      "
-    >
-      <div className="mb-5 flex justify-between text-[--color-dark]">
+    <div className="bg-primary text-dark mb-3 rounded-xl p-3 text-sm">
+      <div className="text-dark mb-5 flex justify-between">
         <p>{workout.name}</p>
         <p>Set of {workout.set}</p>
       </div>
       <div className="flex justify-between">
         <button
           className="
-            rounded-lg bg-[--color-dark] p-1 text-[--color-light] transition-all
+            text-light bg-dark rounded-lg p-1 transition-all
             hover:opacity-95
             active:scale-95
           "
@@ -43,15 +39,15 @@ const WorkoutContainer: React.FC<Props> = ({
         </button>
         <div
           className="
-            mx-2 flex w-full items-center justify-center rounded-lg border
-            border-[--color-dark] text-[--color-dark]
+            text-dark border-dark mx-2 flex w-full items-center justify-center
+            rounded-lg border
           "
         >
           {workout.count}
         </div>
         <button
           className="
-            rounded-lg bg-[--color-dark] p-1 text-[--color-light] transition-all
+            text-light bg-dark rounded-lg p-1 transition-all
             hover:opacity-95
             active:scale-95
           "

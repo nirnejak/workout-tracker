@@ -18,17 +18,17 @@ const Workouts: React.FC = () => {
       "
     >
       <div className="relative mb-3 flex items-center justify-between">
-        <h1 className="text-xl font-medium text-[--color-dark]">Workouts</h1>
+        <h1 className="text-xl font-medium text-dark">Workouts</h1>
         <button
           className="
             rounded-md p-1.5 transition-colors outline-none
-            hover:bg-[--color-primary]
+            hover:bg-primary
           "
           onClick={() => {
             setIsOpen(true)
           }}
         >
-          <Command size={18} className="text-[--color-dark]" />
+          <Command size={18} className="text-dark" />
         </button>
       </div>
       {workouts.map((workout, index) => (

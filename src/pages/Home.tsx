@@ -16,7 +16,7 @@ const App: React.FC = () => {
       </WorkoutsProvider>
       <p
         className="
-          fixed bottom-0 left-5 mb-5 hidden text-sm text-[--color-dark]
+          text-dark fixed bottom-0 left-5 mb-5 hidden text-sm
           md:block
         "
       >
@@ -30,7 +30,7 @@ const App: React.FC = () => {
       >
         <a
           href="https://github.com/nirnejak/workout-tracker"
-          className="text-[--color-dark]"
+          className="text-dark"
           target="_blank"
           rel="noreferrer"
         >

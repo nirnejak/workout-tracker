@@ -71,21 +71,19 @@ const CommandBar: React.FC = () => {
         }}
         label="Global Command Menu"
         className="
-          animate-rise fixed top-1/2 left-1/2 z-50 w-11/12 max-w-145
-          -translate-x-1/2 -translate-y-1/2 rounded-lg bg-[--color-light] p-3
-          select-none
+          animate-rise bg-light fixed top-1/2 left-1/2 z-50 w-11/12 max-w-145
+          -translate-1/2 rounded-lg p-3 select-none
           md:w-full
         "
       >
         <Command.Input
           className="
-            w-full rounded-lg bg-[--color-primary] px-3 py-2 text-[--color-dark]
-            outline-none
+            bg-primary text-dark w-full rounded-lg px-3 py-2 outline-none
           "
           ref={inputRef}
         />
 
-        <Command.List className="py-2 text-[--color-dark]" ref={listRef}>
+        <Command.List className="text-dark py-2" ref={listRef}>
           <Command.Item
             className={commandItemClass}
             value="Reset Workout"
@@ -108,7 +106,7 @@ const CommandBar: React.FC = () => {
             <TrashBin size={13} />
             <span>Clear Local Storage</span>
           </Command.Item>
-          <Command.Separator className="my-1 h-[0.5px] bg-[--color-primary]" />
+          <Command.Separator className="bg-primary my-1 h-[0.5px]" />
           <Command.Item
             className={commandItemClass}
             value="Dune Theme"
@@ -142,7 +140,7 @@ const CommandBar: React.FC = () => {
             <Cloud size={13} />
             Forest Theme
           </Command.Item>
-          <Command.Separator className="my-1 h-[0.5px] bg-[--color-primary]" />
+          <Command.Separator className="bg-primary my-1 h-[0.5px]" />
           <Command.Item
             className={commandItemClass}
             value="View Source"
@@ -161,22 +159,22 @@ const CommandBar: React.FC = () => {
         </Command.List>
         <div
           className="
-            -mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px]
-            border-[--color-primary] p-3 text-xs text-[--color-dark]
+            text-dark border-primary -mx-3 -mb-3 flex justify-between
+            rounded-b-lg border-t-[0.5px] p-3 text-xs
           "
         >
           <p className="flex items-center gap-1.5">
             <span>Navigate with</span>
-            <span className="rounded-md bg-[--color-primary] p-1">
+            <span className="bg-primary rounded-md p-1">
               <ArrowUp size={10} />
             </span>
-            <span className="rounded-md bg-[--color-primary] p-1">
+            <span className="bg-primary rounded-md p-1">
               <ArrowDown size={10} />
             </span>
           </p>
           <p className="flex items-center gap-1.5">
             <span>Open Link</span>
-            <span className="rotate-180 rounded-md bg-[--color-primary] p-1">
+            <span className="bg-primary rotate-180 rounded-md p-1">
               <ArrowForward size={10} />
             </span>
           </p>
