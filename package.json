@@ -15,7 +15,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@types/node": "^25.0.8",
+    "@types/node": "^25.0.9",
     "akar-icons": "^1.9.31",
     "cmdk": "^1.1.1",
     "localforage": "^1.10.0",
