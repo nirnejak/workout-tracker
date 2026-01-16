@@ -36,6 +36,12 @@ npm run lint
 
 Runs ESLint on the `./src` directory with the project's ESLint configuration.
 
+```bash
+npm run lint:fix
+```
+
+Runs ESLint with automatic fixing of fixable issues.
+
 ### Formatting
 
 ```bash
@@ -44,13 +50,23 @@ npm run format
 
 Runs Prettier to format all TypeScript/JavaScript files in the `src/` directory.
 
+```bash
+npm run format:check
+```
+
+Checks if files are properly formatted with Prettier.
+
 ### Testing
 
 **Note:** No test framework is currently configured. The project uses manual testing and CI builds.
 
-### Single Test File
+When tests are added in the future, they would typically use:
 
-**Not applicable** - No test framework is set up. When tests are added, they would typically use:
+```bash
+npm test
+```
+
+For running a single test file (when configured):
 
 ```bash
 npm test -- path/to/test/file.test.ts
@@ -60,11 +76,14 @@ npm test -- path/to/test/file.test.ts
 
 ### Language and Framework
 
-- **TypeScript** with strict mode enabled
+- **TypeScript** with strict mode enabled (`tsconfig.app.json`)
 - **React 19** with modern hooks and functional components
-- **Vite** as the build tool
-- **Tailwind CSS** for styling
-- **React Router DOM** for routing
+- **Vite** as the build tool with SWC for fast compilation
+- **Tailwind CSS v4** for styling with `@theme` directive
+- **React Router DOM** for client-side routing
+- **Context API** for global state management
+- **localStorage** for data persistence
+- **PWA** support with service workers
 
 ### File Structure
 
@@ -96,6 +115,7 @@ src/
 - Functions: `camelCase`
 - Variables: `camelCase`
 - Constants: `UPPER_SNAKE_CASE` (e.g., `LOCAL_STORAGE_FIELD`)
+- Generic type parameters: `T`, `U`, etc.
 
 ### Import Organization
 
@@ -151,22 +171,35 @@ export const useWorkouts = (): WORKOUTS_CONTEXT => {
 }
 ```
 
+#### Event Handlers
+
+Use arrow functions or `useCallback` for event handlers:
+
+```typescript
+const handleIncrement = (): void => {
+  // handler logic
+}
+```
+
 ### TypeScript Guidelines
 
 #### Strict Mode
 
-- All TypeScript strict checks are enabled
+- All TypeScript strict checks are enabled (`strict: true`)
 - Explicit types required for function parameters and return values
-- No `any` types allowed (ESLint rule disabled but prefer explicit typing)
+- `noUnusedLocals` and `noUnusedParameters` enabled
+- `noFallthroughCasesInSwitch` enabled
+- `noUncheckedSideEffectImports` enabled
 
 #### Interface vs Type
 
 - Use `interface` for object shapes that may be extended
 - Use `type` for unions and primitive type aliases
+- Global types defined in `global.d.ts`
 
 #### Generic Types
 
-Use generics for reusable components:
+Use generics for reusable components and utilities:
 
 ```typescript
 interface Props<T> {
@@ -177,68 +210,83 @@ interface Props<T> {
 
 ### Styling Conventions
 
-#### Tailwind CSS
+#### Tailwind CSS v4
 
-- Use utility-first approach
-- Custom CSS properties for theme variables: `--color-primary`, `--color-dark`, etc.
-- Responsive design with `md:` prefixes
-- Consistent spacing with Tailwind scale
+- Use utility-first approach with `@import "tailwindcss"`
+- Custom CSS properties for theme variables defined in `@theme` directive
+- Responsive design with `md:`, `lg:` prefixes
+- Consistent spacing using Tailwind scale
+- Custom animations defined in `@theme` block
 
 #### CSS Custom Properties
 
-Defined in global styles for theme consistency:
+Defined in `index.css` for theme consistency:
 
 ```css
---color-primary: #your-color;
---color-dark: #your-color;
---color-light: #your-color;
+@theme {
+  --color-primary: #your-color;
+  --color-dark: #your-color;
+  --color-light: #your-color;
+}
 ```
+
+#### Component Styles
+
+- Use `@layer components` for reusable component classes
+- Hover states with `hover:` prefix
+- Transition effects with `transition-all`
+- Active states with `active:scale-95` for button feedback
 
 ### Error Handling
 
-- Custom hooks throw errors when used outside providers
+- Custom hooks throw descriptive errors when used outside providers
 - Use `sonner` for user-facing toast notifications
-- Graceful fallbacks for localStorage operations
+- Graceful fallbacks for localStorage operations (check for null)
+- Type-safe error boundaries where appropriate
 
 ### State Management
 
-- React Context for global state
-- localStorage for persistence
+- React Context for global application state
+- localStorage for data persistence with JSON serialization
 - useState for local component state
-- Custom hooks encapsulate stateful logic
+- Custom hooks encapsulate stateful logic and side effects
 
 ### Performance Considerations
 
 - Use `React.memo` for expensive components when needed
 - Optimize context consumers with `useMemo`/`useCallback`
 - Avoid unnecessary re-renders with proper dependency arrays
+- Lazy loading for route-based code splitting
 
 ### Git Workflow
 
-- Pre-commit hooks run `lint-staged` (ESLint on staged files)
+- Pre-commit hooks run `lint-staged` (ESLint on staged files via Husky)
 - Commit messages should be descriptive and follow conventional format
 - CI runs build on push/PR to master branch
 
 ### Code Quality Tools
 
-- **ESLint**: Comprehensive rules including React, TypeScript, accessibility
-- **Prettier**: Code formatting with Tailwind plugin
-- **TypeScript**: Strict type checking
+- **ESLint**: Comprehensive rules including React, TypeScript, accessibility, promises
+- **Prettier**: Code formatting with Tailwind plugin and custom config
+- **TypeScript**: Strict type checking with custom compiler options
 - **Husky**: Git hooks for quality gates
 - **lint-staged**: Run linters only on staged files
+- **Tailwind CSS v4**: Modern CSS framework with `@theme` directive
 
 ### Accessibility
 
-- JSX a11y ESLint rules enabled
+- JSX a11y ESLint rules enabled (comprehensive accessibility checking)
 - Semantic HTML elements
 - Proper ARIA attributes where needed
 - Keyboard navigation support
+- Screen reader friendly markup
 
 ### Browser Support
 
-- Modern browsers (ESNext target)
-- PWA support with service workers
+- Modern browsers (ES2022 target)
+- PWA support with service workers (vite-plugin-pwa)
 - Responsive design for mobile and desktop
+- Touch and pointer event handling
 
 ## Development Workflow
 
@@ -251,13 +299,14 @@ Defined in global styles for theme consistency:
 
 ## Project Architecture Notes
 
-- **SPA** with client-side routing
-- **Context-based** state management
-- **localStorage** for data persistence
+- **SPA** with client-side routing using React Router DOM
+- **Context-based** state management with custom provider components
+- **localStorage** for data persistence with error handling
 - **PWA** capabilities with auto-updating service worker
 - **Icon library**: Akar Icons
 - **Toast notifications**: Sonner
-- **Build optimization**: Vite with SWC for fast builds
+- **Build optimization**: Vite with SWC for fast builds and hot reloading
+- **CSS framework**: Tailwind CSS v4 with custom theme and component layers
 
 This guide should be updated when new tools, patterns, or conventions are introduced to the codebase.</content>
 <parameter name="filePath">/Users/nirnejak/Code/jscode/workout-tracker/AGENTS.md
