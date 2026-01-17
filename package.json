@@ -15,7 +15,6 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@types/node": "^25.0.9",
     "akar-icons": "^1.9.31",
     "cmdk": "^1.1.1",
     "localforage": "^1.10.0",
@@ -30,6 +29,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^25.0.9",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
