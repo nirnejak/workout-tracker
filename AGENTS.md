@@ -34,13 +34,13 @@ Runs TypeScript compiler with `--noEmit` flag to check types without generating 
 npm run lint
 ```
 
-Runs ESLint on the `./src` directory with the project's ESLint configuration.
+Runs oxlint across the project using the `.oxlintrc.json` configuration.
 
 ```bash
 npm run lint:fix
 ```
 
-Runs ESLint with automatic fixing of fixable issues.
+Runs oxlint with automatic fixing of fixable issues.
 
 ### Formatting
 
@@ -48,13 +48,13 @@ Runs ESLint with automatic fixing of fixable issues.
 npm run format
 ```
 
-Runs Prettier to format all TypeScript/JavaScript files in the `src/` directory.
+Runs oxfmt to format the project (using `.oxfmtrc.json`).
 
 ```bash
 npm run format:check
 ```
 
-Checks if files are properly formatted with Prettier.
+Checks if files are properly formatted with oxfmt (`oxfmt --check`).
 
 ### Testing
 
@@ -119,7 +119,7 @@ src/
 
 ### Import Organization
 
-Imports follow ESLint `import/order` rules:
+Imports are sorted automatically by oxfmt (`sortImports`) and validated by oxlint's `import` plugin:
 
 1. **Builtin** (Node.js modules)
 2. **External** (npm packages)
@@ -260,14 +260,14 @@ Defined in `index.css` for theme consistency:
 
 ### Git Workflow
 
-- Pre-commit hooks run `lint-staged` (ESLint on staged files via Husky)
+- Pre-commit hooks run `lint-staged` (oxlint + oxfmt on staged files via Husky)
 - Commit messages should be descriptive and follow conventional format
 - CI runs build on push/PR to master branch
 
 ### Code Quality Tools
 
-- **ESLint**: Comprehensive rules including React, TypeScript, accessibility, promises
-- **Prettier**: Code formatting with Tailwind plugin and custom config
+- **oxlint**: Fast Rust-based linter with React, TypeScript, accessibility, and promise rules
+- **oxfmt**: Fast Rust-based formatter with built-in Tailwind class sorting and import sorting
 - **TypeScript**: Strict type checking with custom compiler options
 - **Husky**: Git hooks for quality gates
 - **lint-staged**: Run linters only on staged files
@@ -275,7 +275,7 @@ Defined in `index.css` for theme consistency:
 
 ### Accessibility
 
-- JSX a11y ESLint rules enabled (comprehensive accessibility checking)
+- JSX a11y rules enabled via oxlint's `jsx-a11y` plugin (comprehensive accessibility checking)
 - Semantic HTML elements
 - Proper ARIA attributes where needed
 - Keyboard navigation support
@@ -293,7 +293,7 @@ Defined in `index.css` for theme consistency:
 1. **Start development**: `npm run dev`
 2. **Make changes**: Edit files following style guidelines
 3. **Check code**: `npm run type-check` and `npm run lint`
-4. **Format code**: `npm run format` (or let Prettier auto-format)
+4. **Format code**: `npm run format` (or let oxfmt auto-format on save)
 5. **Build**: `npm run build` to verify production build
 6. **Commit**: Pre-commit hooks will run linting automatically
 
