@@ -1,7 +1,6 @@
 import React from "react"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-
 import ReactDOM from "react-dom/client"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Toaster } from "sonner"
 
 import CommandBarProvider from "./context/CommandContext"

@@ -19,12 +19,9 @@ const WorkoutContainer: React.FC<Props> = ({
       </div>
       <div className="flex justify-between">
         <button
-          className="
-            text-light bg-dark rounded-lg p-1 transition-all
-            hover:opacity-95
-            active:scale-95
-          "
+          className="text-light bg-dark rounded-lg p-1 transition-all hover:opacity-95 active:scale-95"
           onClick={reduceCount}
+          aria-label={`Decrease ${workout.name} count`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,25 +30,18 @@ const WorkoutContainer: React.FC<Props> = ({
             strokeWidth={1.5}
             stroke="currentColor"
             className="size-5"
+            aria-hidden="true"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
           </svg>
         </button>
-        <div
-          className="
-            text-dark border-dark mx-2 flex w-full items-center justify-center
-            rounded-lg border
-          "
-        >
+        <div className="text-dark border-dark mx-2 flex w-full items-center justify-center rounded-lg border">
           {workout.count}
         </div>
         <button
-          className="
-            text-light bg-dark rounded-lg p-1 transition-all
-            hover:opacity-95
-            active:scale-95
-          "
+          className="text-light bg-dark rounded-lg p-1 transition-all hover:opacity-95 active:scale-95"
           onClick={increaseCount}
+          aria-label={`Increase ${workout.name} count`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -60,6 +50,7 @@ const WorkoutContainer: React.FC<Props> = ({
             strokeWidth={1.5}
             stroke="currentColor"
             className="size-5"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"

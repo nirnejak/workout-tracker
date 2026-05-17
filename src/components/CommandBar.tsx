@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import {
   ArrowCounterClockwise,
   Cloud,
@@ -13,14 +11,21 @@ import {
   TrashBin,
 } from "akar-icons"
 import { Command } from "cmdk"
+import * as React from "react"
 import { toast } from "sonner"
-
 import { useCommandBar } from "src/context/CommandContext"
 import { useTheme } from "src/context/ThemeContext"
 import { useWorkouts } from "src/context/WorkoutsContext"
 
 const commandItemClass =
   "command-item px-3 py-2 cursor-pointer hover-bg flex items-center gap-1.5 outline-0"
+
+const clearLocalStorage = (): void => {
+  localStorage.clear()
+  toast("Local Storage Cleared", {
+    icon: <TrashBin size={15} />,
+  })
+}
 
 const CommandBar: React.FC = () => {
   const { isOpen, setIsOpen } = useCommandBar()
@@ -35,7 +40,7 @@ const CommandBar: React.FC = () => {
   React.useEffect(() => {
     inputRef?.current?.focus()
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // oxlint-disable-next-line typescript/no-explicit-any
     const eventHandler = (e: any | React.KeyboardEvent): void => {
       if ((e as KeyboardEvent).key === "k" && (e as KeyboardEvent).metaKey) {
         setIsOpen(true)
@@ -47,13 +52,6 @@ const CommandBar: React.FC = () => {
       document.removeEventListener("keydown", eventHandler)
     }
   }, [setIsOpen])
-
-  const clearLocalStorage = (): void => {
-    localStorage.clear()
-    toast("Local Storage Cleared", {
-      icon: <TrashBin size={15} />,
-    })
-  }
 
   return (
     <Command
@@ -70,16 +68,10 @@ const CommandBar: React.FC = () => {
           setValue(v)
         }}
         label="Global Command Menu"
-        className="
-          animate-rise bg-light fixed top-1/2 left-1/2 z-50 w-11/12 max-w-145
-          -translate-1/2 rounded-lg p-3 select-none
-          md:w-full
-        "
+        className="animate-rise bg-light fixed top-1/2 left-1/2 z-50 w-11/12 max-w-145 -translate-1/2 rounded-lg p-3 select-none md:w-full"
       >
         <Command.Input
-          className="
-            bg-primary text-dark w-full rounded-lg px-3 py-2 outline-none
-          "
+          className="bg-primary text-dark w-full rounded-lg px-3 py-2 outline-none"
           ref={inputRef}
         />
 
@@ -157,12 +149,7 @@ const CommandBar: React.FC = () => {
             <LinkOut size={13} className="ml-auto" />
           </Command.Item>
         </Command.List>
-        <div
-          className="
-            text-dark border-primary -mx-3 -mb-3 flex justify-between
-            rounded-b-lg border-t-[0.5px] p-3 text-xs
-          "
-        >
+        <div className="text-dark border-primary -mx-3 -mb-3 flex justify-between rounded-b-lg border-t-[0.5px] p-3 text-xs">
           <p className="flex items-center gap-1.5">
             <span>Navigate with</span>
             <span className="bg-primary rounded-md p-1">

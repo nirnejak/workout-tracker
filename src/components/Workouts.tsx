@@ -1,6 +1,5 @@
-import * as React from "react"
-
 import { Command } from "akar-icons"
+import * as React from "react"
 import { useCommandBar } from "src/context/CommandContext"
 import { useWorkouts } from "src/context/WorkoutsContext"
 
@@ -11,19 +10,11 @@ const Workouts: React.FC = () => {
   const { setIsOpen } = useCommandBar()
 
   return (
-    <div
-      className="
-        mx-auto w-full p-4
-        md:w-75
-      "
-    >
+    <div className="mx-auto w-full p-4 md:w-75">
       <div className="relative mb-3 flex items-center justify-between">
-        <h1 className="text-xl font-medium text-dark">Workouts</h1>
+        <h1 className="text-dark text-xl font-medium">Workouts</h1>
         <button
-          className="
-            rounded-md p-1.5 transition-colors outline-none
-            hover:bg-primary
-          "
+          className="hover:bg-primary rounded-md p-1.5 transition-colors outline-none"
           onClick={() => {
             setIsOpen(true)
           }}

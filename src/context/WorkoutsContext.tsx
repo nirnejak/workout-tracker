@@ -1,6 +1,5 @@
-import * as React from "react"
-
 import { ArrowCycle } from "akar-icons"
+import * as React from "react"
 import { toast } from "sonner"
 
 const initialWorkouts = [
@@ -65,8 +64,8 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
   }
 
   const reduceCount = (index: number): void => {
-    setWorkouts((workouts) => {
-      const updatedWorkouts = workouts.map((workout, i) => {
+    setWorkouts((prevWorkouts) => {
+      const updatedWorkouts = prevWorkouts.map((workout, i) => {
         if (i === index) {
           return {
             ...workout,
@@ -82,8 +81,8 @@ const WorkoutsProvider: React.FC<Props> = ({ children }) => {
   }
 
   const increaseCount = (index: number): void => {
-    setWorkouts((workouts) => {
-      const updatedWorkouts = workouts.map((workout, i) => {
+    setWorkouts((prevWorkouts) => {
+      const updatedWorkouts = prevWorkouts.map((workout, i) => {
         if (i === index) {
           return {
             ...workout,

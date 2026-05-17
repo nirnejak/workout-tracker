@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .command-item[aria-selected="true"] {
-  @apply after:scale-100 after:opacity-100 text-[--color-light];
+  @apply text-[--color-light] after:scale-100 after:opacity-100;
 }
 
 @theme {
